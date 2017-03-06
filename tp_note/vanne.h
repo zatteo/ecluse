@@ -3,19 +3,21 @@
 
 #include <QObject>
 
-class Vanne
+class Vanne : public QObject
 {
+    Q_OBJECT
+
 public:
-    Vanne();
+    explicit Vanne(QObject *parent = 0);
 
 signals:
-    bool etatVanne();
+//    bool etatVanne();
 
 public slots:
-    void ouverture();
-    void fermeture();
-    void urgence();
-    void extinctionAlarme();
+//    void ouverture();
+//    void fermeture();
+//    void urgence();
+//    void extinctionAlarme();
 
 private:
     bool etat; // 1 = ouvert, 0 = fermé

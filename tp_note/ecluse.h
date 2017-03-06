@@ -6,23 +6,24 @@
 #include "porte.h"
 #include "signallumineux.h"
 
-class Ecluse
+class Ecluse : public QObject
 {
+    Q_OBJECT
+
 public:
-    Ecluse();
-    void avalVersAmont();
-    void amontVersAval();
-    void ouvertureVanne(Vanne v);
-    void fermetureVanne(Vanne v);
-    void ouverturePorte(Porte p);
-    void fermeturePorte(Porte p);
-    void signalLumineux(SignalLumineux sl, bool etat);
+    explicit Ecluse(QObject *parent = 0);
+//    void avalVersAmont();
+//    void amontVersAval();
+//    void ouvertureVanne(Vanne v);
+//    void fermetureVanne(Vanne v);
+//    void ouverturePorte(Porte p);
+//    void fermeturePorte(Porte p);
 
 signals:
 
 public slots:
-    void urgence();
-    void extinctionAlarme();
+//    void urgence();
+//    void extinctionAlarme();
 
 private:
     Vanne vanneAmont;

@@ -1,6 +1,6 @@
 #include "vanne.h"
 
-Vanne::Vanne()
+Vanne::Vanne(QObject *parent) : QObject(parent)
 {
 
 }

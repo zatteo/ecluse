@@ -3,15 +3,12 @@
 
 #include <QObject>
 
-class SignalLumineux
+class SignalLumineux : public QObject
 {
+    Q_OBJECT
+
 public:
     SignalLumineux();
-
-signals:
-
-public slots:
-    void signalLumineux(SignalLumineux sl, bool etat);
 
 private:
     int etat; // 1 = vert, 0 = rouge
