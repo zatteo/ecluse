@@ -14,9 +14,11 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void authentification();
 
 private:
     Ui::MainWindow *ui;
+    bool admin;
 };
 
 #endif // MAINWINDOW_H
