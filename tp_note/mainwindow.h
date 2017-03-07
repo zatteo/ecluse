@@ -19,7 +19,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    bool admin;
     Ecluse e;
 };
 

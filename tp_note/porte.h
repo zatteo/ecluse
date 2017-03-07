@@ -1,19 +1,23 @@
 #ifndef PORTE_H
 #define PORTE_H
 
-#include <QObject>
 #include <QTimer>
+#include <QThread>
 
-class Porte : public QObject
+class Porte : public QThread
 {
     Q_OBJECT
 
 public:
-     explicit Porte(QObject *parent = 0);
+    explicit Porte(QObject *parent = 0);
+
+protected:
+    void run();
 
 signals:
     int etatPorte(int);
     int positionPorte(int);
+    void alarmePorte(int);
 
 public slots:
     void ouverture();
@@ -21,10 +25,12 @@ public slots:
     void arret();
     void urgence();
     void deplacementPorte(int);
-    void mettreAlarme();
+    void mettreAlarme(int); // 1 = panne, 0 = urgence
     void enleverAlarme();
     void mettrePanne();
     void enleverPanne();
+    bool isPanne();
+    bool isAlarme();
 
 private:
     int etat; // 4 = ouvert, 3 = en ouverture, 2 = fermé, 1 = en fermeture, 0 = arrêtée

@@ -772,6 +772,8 @@ moc_mainwindow.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QMainWi
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/signallumineux.h \
 		../tp_note/mainwindow.h \
 		moc_predefs.h \
@@ -831,6 +833,8 @@ moc_ecluse.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/signallumineux.h \
 		../tp_note/ecluse.h \
 		moc_predefs.h \
@@ -941,6 +945,8 @@ moc_porte.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/porte.h \
 		moc_predefs.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/bin/moc
@@ -1130,6 +1136,8 @@ main.o: ../tp_note/main.cpp ../tp_note/mainwindow.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/signallumineux.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QApplication \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qapplication.h \
@@ -1252,6 +1260,8 @@ mainwindow.o: ../tp_note/mainwindow.cpp ../tp_note/mainwindow.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/signallumineux.h \
 		ui_mainwindow.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QVariant \
@@ -1348,6 +1358,8 @@ ecluse.o: ../tp_note/ecluse.cpp ../tp_note/ecluse.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/signallumineux.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ecluse.o ../tp_note/ecluse.cpp
 
@@ -1453,7 +1465,9 @@ porte.o: ../tp_note/porte.cpp ../tp_note/porte.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o porte.o ../tp_note/porte.cpp
 
 signallumineux.o: ../tp_note/signallumineux.cpp ../tp_note/signallumineux.h \

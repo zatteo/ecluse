@@ -14,16 +14,16 @@ public:
     explicit Ecluse(QObject *parent = 0);
 //    void avalVersAmont();
 //    void amontVersAval();
-//    void ouvertureVanne(Vanne v);
-//    void fermetureVanne(Vanne v);
-//    void ouverturePorte(Porte p);
-//    void fermeturePorte(Porte p);
 
 signals:
 
 public slots:
-//    void urgence();
-//    void extinctionAlarme();
+    void ouvertureVannes();
+    void fermetureVannes();
+    void ouverturePortes();
+    void fermeturePortes();
+    void urgence();
+    void enleverAlarme();
 
 private:
     Vanne vanneAmont;
@@ -35,7 +35,8 @@ private:
     SignalLumineux signalAmont;
     SignalLumineux signalAval;
 
-    bool alarme; // 1 = alarme, 0 = pas d'alarme
+    bool alarme;
+    bool admin;
 };
 
 #endif // ECLUSE_H
