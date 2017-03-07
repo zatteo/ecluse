@@ -5,7 +5,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    admin = false;
     ui->setupUi(this);
 }
 

@@ -1,17 +1,22 @@
 #ifndef SIGNALLUMINEUX_H
 #define SIGNALLUMINEUX_H
 
-#include <QObject>
+#include <QThread>
 
-class SignalLumineux
+class SignalLumineux : public QThread
 {
-public:
-    SignalLumineux();
+    Q_OBJECT
 
-signals:
+public:
+    SignalLumineux(QObject *parent = 0);
+
+protected:
+    void run();
 
 public slots:
-    void signalLumineux(SignalLumineux sl, bool etat);
+    void rouge();
+    void vert();
+    int getEtat();
 
 private:
     int etat; // 1 = vert, 0 = rouge
