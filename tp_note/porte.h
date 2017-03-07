@@ -20,8 +20,11 @@ public slots:
     void fermeture();
     void arret();
     void urgence();
-//    void extinctionAlarme();
     void deplacementPorte(int);
+    void mettreAlarme();
+    void enleverAlarme();
+    void mettrePanne();
+    void enleverPanne();
 
 private:
     int etat; // 4 = ouvert, 3 = en ouverture, 2 = fermé, 1 = en fermeture, 0 = arrêtée

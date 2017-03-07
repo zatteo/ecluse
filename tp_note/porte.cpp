@@ -3,12 +3,15 @@
 Porte::Porte(QObject *parent) : QObject(parent)
 {
     etat = 2;
-    panne = 0;
-    alarme = 0;
+    panne = false;
+    alarme = false;
 }
 
 void Porte::ouverture()
 {
+    if(alarme)
+        return;
+
     etat = 3; // on passe en ouverture
     connect(&timer, SIGNAL(timeout()), this, SLOT(deplacementPorte(1))); // ouverture
     timer.start(1000);
@@ -16,13 +19,37 @@ void Porte::ouverture()
 
 void Porte::fermeture()
 {
+    if(alarme)
+        return;
+
     etat = 1; // on passe en fermeture
     connect(&timer, SIGNAL(timeout()), this, SLOT(deplacementPorte(-1))); // fermeture
     timer.start(1000);
 }
 
+void Porte::arret()
+{
+    if(alarme)
+        return;
+
+    timer.stop();
+    etat = 0;
+}
+
+void Porte::urgence()
+{
+    if(alarme)
+        return;
+
+    etat = 0;
+    alarme = true;
+}
+
 void Porte::deplacementPorte(int p)
 {
+    if(alarme)
+        return;
+
     if(position == 10 && p == 1) // la porte est ouverte et l'objectif était de l'ouvrir
     {
         etat = 4;
@@ -38,14 +65,22 @@ void Porte::deplacementPorte(int p)
         emit positionPorte(position);
     }
 }
-
-void Porte::arret()
+void Porte::mettreAlarme()
 {
-    timer.stop();
-    etat = 0;
+    alarme = true;
 }
 
-void Porte::urgence()
+void Porte::enleverAlarme()
 {
-    etat = 0;
+    alarme = false;
+}
+
+void Porte::mettrePanne()
+{
+    panne = true;
+}
+
+void Porte::enleverPanne()
+{
+    panne = false;
 }
