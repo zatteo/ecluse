@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <unistd.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -35,9 +36,56 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::rendu_ouvre_vanne1()
+{
+    ui->vanne1->setStyleSheet("background-color:rgb(114, 159, 207);");
+    ui->vanne3->setStyleSheet("background-color:rgb(114, 159, 207);");
+}
+void MainWindow::rendu_ferme_vanne1()
+{
+    ui->vanne1->setStyleSheet("background-color:rgb(85, 87, 83);");
+    ui->vanne3->setStyleSheet("background-color:rgb(85, 87, 83);");
+}
+void MainWindow::rendu_ouvre_vanne2()
+{
+    ui->vanne4->setStyleSheet("background-color:rgb(114, 159, 207);");
+    ui->vanne2->setStyleSheet("background-color:rgb(114, 159, 207);");
+}
+void MainWindow::rendu_ferme_vanne2()
+{
+    ui->vanne2->setStyleSheet("background-color:rgb(85, 87, 83);");
+    ui->vanne4->setStyleSheet("background-color:rgb(85, 87, 83);");
+}
+
+void MainWindow::baisse_eau()
+{
+    for(int i=0; i< 10; i++)
+    {
+        ui->eau1->move( ui->eau1->pos().x() , (ui->eau1->pos().y() + 5 ));
+        ui->eau2->move( ui->eau1->pos().x() , (ui->eau2->pos().y() + 5 ));
+        QApplication::processEvents();
+        QThread::msleep(300);
+    }
+}
+void MainWindow::monte_eau()
+{
+    for(int i=0; i< 10; i++)
+    {
+        ui->eau1->move( ui->eau1->pos().x() , (ui->eau1->pos().y() - 5 ));
+        ui->eau2->move( ui->eau1->pos().x() , (ui->eau2->pos().y() - 5 ));
+        QApplication::processEvents();
+        QThread::msleep(300);
+    }
+}
+
+
 void MainWindow::on_Button_Amont_Aval_3_clicked()
 {
     e.sens = -1; // 1 = aval vers amont, -1 = amont vers aval
+
+    rendu_ouvre_vanne1();
+    baisse_eau();
+    rendu_ferme_vanne1();
 
     ui->stackedWidget->setCurrentIndex(1);
     ui->label_3->setText("Lorsque vous êtes dans le sas:");
