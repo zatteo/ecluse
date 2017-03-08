@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1227</width>
-    <height>669</height>
+    <height>867</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page_1">
      <property name="enabled">
