@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[10];
-    char stringdata0[173];
+    QByteArrayData data[1];
+    char stringdata0[11];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -31,23 +31,10 @@ struct qt_meta_stringdata_MainWindow_t {
     )
 static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
     {
-QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
-QT_MOC_LITERAL(1, 11, 30), // "on_Button_Amont_Aval_3_clicked"
-QT_MOC_LITERAL(2, 42, 0), // ""
-QT_MOC_LITERAL(3, 43, 30), // "on_Button_Aval_Amont_3_clicked"
-QT_MOC_LITERAL(4, 74, 30), // "on_Button_Amont_Aval_4_clicked"
-QT_MOC_LITERAL(5, 105, 10), // "on_urgence"
-QT_MOC_LITERAL(6, 116, 3), // "mdp"
-QT_MOC_LITERAL(7, 120, 4), // "auth"
-QT_MOC_LITERAL(8, 125, 24), // "on_Button_retour_clicked"
-QT_MOC_LITERAL(9, 150, 22) // "on_Button_quit_clicked"
+QT_MOC_LITERAL(0, 0, 10) // "MainWindow"
 
     },
-    "MainWindow\0on_Button_Amont_Aval_3_clicked\0"
-    "\0on_Button_Aval_Amont_3_clicked\0"
-    "on_Button_Amont_Aval_4_clicked\0"
-    "on_urgence\0mdp\0auth\0on_Button_retour_clicked\0"
-    "on_Button_quit_clicked"
+    "MainWindow"
 };
 #undef QT_MOC_LITERAL
 
@@ -57,53 +44,21 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       0,    0, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
- // slots: name, argc, parameters, tag, flags
-       1,    0,   54,    2, 0x08 /* Private */,
-       3,    0,   55,    2, 0x08 /* Private */,
-       4,    0,   56,    2, 0x08 /* Private */,
-       5,    0,   57,    2, 0x08 /* Private */,
-       6,    0,   58,    2, 0x08 /* Private */,
-       7,    0,   59,    2, 0x08 /* Private */,
-       8,    0,   60,    2, 0x08 /* Private */,
-       9,    0,   61,    2, 0x08 /* Private */,
-
- // slots: parameters
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-
        0        // eod
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        MainWindow *_t = static_cast<MainWindow *>(_o);
-        Q_UNUSED(_t)
-        switch (_id) {
-        case 0: _t->on_Button_Amont_Aval_3_clicked(); break;
-        case 1: _t->on_Button_Aval_Amont_3_clicked(); break;
-        case 2: _t->on_Button_Amont_Aval_4_clicked(); break;
-        case 3: _t->on_urgence(); break;
-        case 4: _t->mdp(); break;
-        case 5: _t->auth(); break;
-        case 6: _t->on_Button_retour_clicked(); break;
-        case 7: _t->on_Button_quit_clicked(); break;
-        default: ;
-        }
-    }
+    Q_UNUSED(_o);
+    Q_UNUSED(_id);
+    Q_UNUSED(_c);
     Q_UNUSED(_a);
 }
 
@@ -131,15 +86,6 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
-            qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
-    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
-            *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 8;
-    }
     return _id;
 }
 QT_WARNING_POP
