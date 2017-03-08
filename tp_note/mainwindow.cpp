@@ -76,14 +76,16 @@ void MainWindow::baisse_eau()
 
 void MainWindow::baisseporte1()
 {
-    ui->porte1->move( ui->eau1->pos().x() , (ui->eau1->pos().y() + 5 ));
-    ui->porte3->move( ui->eau1->pos().x() , (ui->eau2->pos().y() + 5 ));
+    ui->porte1->move( ui->porte1->pos().x() , (ui->porte1->pos().y() + 7 ));
+    ui->porte3->move( ui->porte3->pos().x() , (ui->porte3->pos().y() + 7 ));
+    QApplication::processEvents();
 }
 
 void MainWindow::baisseporte2()
 {
-    ui->porte2->move( ui->eau1->pos().x() , (ui->eau1->pos().y() + 5 ));
-    ui->porte4->move( ui->eau1->pos().x() , (ui->eau2->pos().y() + 5 ));
+    ui->porte2->move( ui->porte2->pos().x() , (ui->porte2->pos().y() + 7 ));
+    ui->porte4->move( ui->porte4->pos().x() , (ui->porte4->pos().y() + 7 ));
+    QApplication::processEvents();
 }
 
 
@@ -100,14 +102,16 @@ void MainWindow::monte_eau()
 
 void MainWindow::monteporte1()
 {
-    ui->porte1->move( ui->eau1->pos().x() , (ui->eau1->pos().y() - 5 ));
-    ui->porte3->move( ui->eau1->pos().x() , (ui->eau2->pos().y() - 5 ));
+    ui->porte1->move( ui->porte1->pos().x() , (ui->porte1->pos().y() - 7 ));
+    ui->porte3->move( ui->porte3->pos().x() , (ui->porte3->pos().y() - 7 ));
+    QApplication::processEvents();
 }
 
 void MainWindow::monteporte2()
 {
-    ui->porte2->move( ui->eau1->pos().x() , (ui->eau1->pos().y() - 5 ));
-    ui->porte4->move( ui->eau1->pos().x() , (ui->eau2->pos().y() - 5 ));
+    ui->porte2->move( ui->porte2->pos().x() , (ui->porte2->pos().y() - 7 ));
+    ui->porte4->move( ui->porte4->pos().x() , (ui->porte4->pos().y() - 7 ));
+    QApplication::processEvents();
 }
 
 void MainWindow::on_Button_Amont_Aval_3_clicked()
