@@ -1,3 +1,4 @@
+#include <QDebug>
 #include "ecluse.h"
 
 Ecluse::Ecluse(QObject *parent) : QObject(parent)
@@ -12,41 +13,40 @@ Ecluse::Ecluse(QObject *parent) : QObject(parent)
     signalAval.start();
 }
 
-Vanne getVanne(int i)
+Vanne Ecluse::getVanne(int i)
 {
-    if(i == AMONT)
-    {
-        return vanneAmont;
-    }
-    else if(i == AVAL)
-    {
-        return vanneAval;
-    }
+//    if(i == AMONT)
+//    {
+//        return vanneAmont;
+//    }
+//    else if(i == AVAL)
+//    {
+//        return vanneAval;
+//    }
 }
 
-Porte getPorte(int i)
+Porte Ecluse::getPorte(int i)
 {
-    if(i == AMONT)
-    {
-        return porteAmont;
-    }
-    else if(i == AVAL)
-    {
-        return porteAval;
-    }
+//    if(i == AMONT)
+//    {
+//        return porteAmont;
+//    }
+//    else if(i == AVAL)
+//    {
+//        return porteAval;
+//    }
 }
 
-
-SignalLumineux getSignalLumineux(int i)
+SignalLumineux Ecluse::getSignalLumineux(int i)
 {
-    if(i == AMONT)
-    {
-        return signalAmont;
-    }
-    else if(i == AVAL)
-    {
-        return signalAval;
-    }
+//    if(i == AMONT)
+//    {
+//        return signalAmont;
+//    }
+//    else if(i == AVAL)
+//    {
+//        return signalAval;
+//    }
 }
 
 void Ecluse::ouvertureVannes(int i)
@@ -141,19 +141,19 @@ void Ecluse::enleverAlarme()
     porteAval.enleverAlarme();
 }
 
-void avalVersAmont()
+void Ecluse::avalVersAmont()
 {
-    QDebug() << "Aval vers Amont...";
+//    QDebug() << "Aval vers Amont...";
 
-    ouvertureVannes(AVAL);
+//    ouvertureVannes(AVAL);
 
-    connect(getVanne(AVAL), this, SLOT(), this);
+//    connect(getVanne(AVAL), this, SLOT(), this);
 
     // ouverture une des portes
 }
 
-void amontVersAval()
+void Ecluse::amontVersAval()
 {
-    QDebug() << "Amont vers Aval...";
+//    QDebug() << "Amont vers Aval...";
 }
 

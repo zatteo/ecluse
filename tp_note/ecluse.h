@@ -2,6 +2,7 @@
 #define ECLUSE_H
 
 #include <QObject>
+#include <QDebug>
 #include "vanne.h"
 #include "porte.h"
 #include "signallumineux.h"
