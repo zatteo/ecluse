@@ -27,8 +27,17 @@ private slots:
     void auth();
 
     void on_Button_retour_clicked();
-
     void on_Button_quit_clicked();
+
+    void rendu_ouvre_vanne1();
+    void rendu_ouvre_vanne2();
+    void rendu_ferme_vanne1();
+    void rendu_ferme_vanne2();
+    void monte_eau();
+    void baisse_eau();
+
+
+
 
 private:
     Ui::MainWindow *ui;
