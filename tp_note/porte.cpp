@@ -11,6 +11,8 @@ Porte::Porte(QObject *parent) : QThread(parent)
 
 void Porte::ouverture()
 {
+    qDebug() << "Ouverture de la porte...";
+
     if(alarme || etat == 3 || etat == 4)
         return;
 
@@ -21,6 +23,8 @@ void Porte::ouverture()
 
 void Porte::fermeture()
 {
+    qDebug() << "Fermeture de la porte...";
+
     if(alarme || etat == 1 || etat == 2)
         return;
 
@@ -31,6 +35,8 @@ void Porte::fermeture()
 
 void Porte::arret()
 {
+    qDebug() << "Arrêt de la porte.";
+
     if(alarme)
         return;
 
@@ -40,6 +46,8 @@ void Porte::arret()
 
 void Porte::urgence()
 {
+    qDebug() << "Urgence.";
+
     if(alarme)
         return;
 
@@ -70,17 +78,23 @@ void Porte::deplacementPorte(int p)
 
 void Porte::mettreAlarme(int i)
 {
+    qDebug() << "Alarme ON.";
+
     alarme = true;
     emit mettreAlarme(i);
 }
 
 void Porte::enleverAlarme()
 {
+    qDebug() << "Alarme OFF.";
+
     alarme = false;
 }
 
 void Porte::mettrePanne()
 {
+    qDebug() << "Panne ON.";
+
     panne = true;
 
     arret();
@@ -89,6 +103,8 @@ void Porte::mettrePanne()
 
 void Porte::enleverPanne()
 {
+    qDebug() << "Panne OFF.";
+
     panne = false;
 }
 

@@ -2,6 +2,7 @@
 #define SIGNALLUMINEUX_H
 
 #include <QThread>
+#include <QDebug>
 
 class SignalLumineux : public QThread
 {

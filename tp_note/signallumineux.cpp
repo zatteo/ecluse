@@ -6,11 +6,15 @@ SignalLumineux::SignalLumineux(QObject *parent) : QThread(parent){}
 
 void SignalLumineux::rouge()
 {
+    qDebug() << "Signal rouge.";
+
     etat = 0;
 }
 
 void SignalLumineux::vert()
 {
+    qDebug() << "Signal vert.";
+
     etat = 1;
 }
 

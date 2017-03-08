@@ -61,18 +61,18 @@ static const uint qt_meta_data_Ecluse[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   44,    2, 0x0a /* Public */,
-       3,    0,   45,    2, 0x0a /* Public */,
-       4,    0,   46,    2, 0x0a /* Public */,
-       5,    0,   47,    2, 0x0a /* Public */,
-       6,    0,   48,    2, 0x0a /* Public */,
-       7,    0,   49,    2, 0x0a /* Public */,
+       1,    1,   44,    2, 0x0a /* Public */,
+       3,    1,   47,    2, 0x0a /* Public */,
+       4,    1,   50,    2, 0x0a /* Public */,
+       5,    1,   53,    2, 0x0a /* Public */,
+       6,    0,   56,    2, 0x0a /* Public */,
+       7,    0,   57,    2, 0x0a /* Public */,
 
  // slots: parameters
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -85,16 +85,15 @@ void Ecluse::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         Ecluse *_t = static_cast<Ecluse *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->ouvertureVannes(); break;
-        case 1: _t->fermetureVannes(); break;
-        case 2: _t->ouverturePortes(); break;
-        case 3: _t->fermeturePortes(); break;
+        case 0: _t->ouvertureVannes((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: _t->fermetureVannes((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: _t->ouverturePortes((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: _t->fermeturePortes((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 4: _t->urgence(); break;
         case 5: _t->enleverAlarme(); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject Ecluse::staticMetaObject = {

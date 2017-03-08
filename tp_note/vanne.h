@@ -2,6 +2,7 @@
 #define VANNE_H
 
 #include <QThread>
+#include <QDebug>
 
 class Vanne : public QThread
 {

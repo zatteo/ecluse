@@ -3,6 +3,7 @@
 
 #include <QTimer>
 #include <QThread>
+#include <QDebug>
 
 class Porte : public QThread
 {
