@@ -51,9 +51,12 @@ public slots:
     void avalVersAmont2bis();
     void avalVersAmont3();
     void avalVersAmont3bis();
+
     void amontVersAval1();
-//    void amontVersAval2();
-//    void amontVersAval3();
+    void amontVersAval2();
+    void amontVersAval2bis();
+    void amontVersAval3();
+    void amontVersAval3bis();
 
 private:
 

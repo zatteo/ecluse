@@ -33,8 +33,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(e.porteAmont, SIGNAL(signalPorteMoinsUn()), this, SLOT(monteporte1()));
     QObject::connect(e.porteAval, SIGNAL(signalPortePlusUn()), this, SLOT(baisseporte2()));
     QObject::connect(e.porteAval, SIGNAL(signalPorteMoinsUn()), this, SLOT(monteporte2()));
-
-
 }
 
 MainWindow::~MainWindow()
