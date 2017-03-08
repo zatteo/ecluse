@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_1">
      <property name="enabled">
@@ -135,9 +135,9 @@
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>330</y>
+        <y>390</y>
         <width>21</width>
-        <height>141</height>
+        <height>81</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -169,7 +169,7 @@
        <rect>
         <x>130</x>
         <y>400</y>
-        <width>311</width>
+        <width>331</width>
         <height>101</height>
        </rect>
       </property>
@@ -231,9 +231,9 @@
      <widget class="QLabel" name="label_63">
       <property name="geometry">
        <rect>
-        <x>770</x>
+        <x>750</x>
         <y>450</y>
-        <width>221</width>
+        <width>241</width>
         <height>81</height>
        </rect>
       </property>
@@ -312,9 +312,9 @@
       <property name="geometry">
        <rect>
         <x>750</x>
-        <y>330</y>
+        <y>390</y>
         <width>21</width>
-        <height>171</height>
+        <height>111</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -401,14 +401,14 @@
      <zorder>label_62</zorder>
      <zorder>label_63</zorder>
      <zorder>porte1</zorder>
-     <zorder>vanne1</zorder>
-     <zorder>vanne2</zorder>
      <zorder>porte2</zorder>
      <zorder>feux1</zorder>
      <zorder>feux2</zorder>
      <zorder>label_13</zorder>
      <zorder>label_14</zorder>
      <zorder>label_4</zorder>
+     <zorder>vanne1</zorder>
+     <zorder>vanne2</zorder>
      <zorder>label_60</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
@@ -573,9 +573,9 @@
      <widget class="QLabel" name="label_55">
       <property name="geometry">
        <rect>
-        <x>770</x>
+        <x>750</x>
         <y>450</y>
-        <width>221</width>
+        <width>241</width>
         <height>81</height>
        </rect>
       </property>
@@ -622,9 +622,9 @@
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>330</y>
+        <y>390</y>
         <width>21</width>
-        <height>141</height>
+        <height>81</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -656,7 +656,7 @@
        <rect>
         <x>130</x>
         <y>400</y>
-        <width>311</width>
+        <width>331</width>
         <height>101</height>
        </rect>
       </property>
@@ -703,9 +703,9 @@
       <property name="geometry">
        <rect>
         <x>750</x>
-        <y>330</y>
+        <y>390</y>
         <width>21</width>
-        <height>171</height>
+        <height>111</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -780,6 +780,7 @@
        <string>Aval</string>
       </property>
      </widget>
+     <zorder>label_70</zorder>
      <zorder>label_2</zorder>
      <zorder>Button_urgence2</zorder>
      <zorder>progressBar_2</zorder>
@@ -788,19 +789,18 @@
      <zorder>label_25</zorder>
      <zorder>eau2</zorder>
      <zorder>label_55</zorder>
-     <zorder>label_5</zorder>
-     <zorder>vanne3</zorder>
      <zorder>porte3</zorder>
      <zorder>label_69</zorder>
-     <zorder>label_70</zorder>
-     <zorder>label_71</zorder>
-     <zorder>vanne4</zorder>
      <zorder>porte4</zorder>
      <zorder>feux3</zorder>
      <zorder>feux4</zorder>
      <zorder>label_26</zorder>
      <zorder>label_61</zorder>
      <zorder>label_24</zorder>
+     <zorder>vanne3</zorder>
+     <zorder>label_5</zorder>
+     <zorder>vanne4</zorder>
+     <zorder>label_71</zorder>
     </widget>
     <widget class="QWidget" name="page_connection">
      <widget class="QFrame" name="frame">
@@ -1596,7 +1596,7 @@ font: 14pt &quot;Ubuntu&quot;;</string>
             <x>0</x>
             <y>260</y>
             <width>401</width>
-            <height>31</height>
+            <height>51</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -1610,7 +1610,7 @@ font: 14pt &quot;Ubuntu&quot;;</string>
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>170</y>
+            <y>140</y>
             <width>111</width>
             <height>91</height>
            </rect>
@@ -1622,6 +1622,163 @@ font: 14pt &quot;Ubuntu&quot;;</string>
            <string/>
           </property>
          </widget>
+         <widget class="QLabel" name="label_74">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>230</y>
+            <width>141</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(143, 89, 2);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_75">
+          <property name="geometry">
+           <rect>
+            <x>140</x>
+            <y>140</y>
+            <width>121</width>
+            <height>121</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(114, 159, 207);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_76">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>180</y>
+            <width>111</width>
+            <height>81</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(114, 159, 207);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="porte1_2">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>130</y>
+            <width>31</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: black;
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="porte1_3">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>130</y>
+            <width>31</width>
+            <height>101</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: black;
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="vanne2_2">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>200</y>
+            <width>31</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(85, 87, 83);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="vanne2_4">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>230</y>
+            <width>31</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(85, 87, 83);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="feux2_2">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>70</y>
+            <width>21</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(78, 154, 6)</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="feux2_3">
+          <property name="geometry">
+           <rect>
+            <x>300</x>
+            <y>70</y>
+            <width>21</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(78, 154, 6)</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <zorder>label_73</zorder>
+         <zorder>label_74</zorder>
+         <zorder>label_75</zorder>
+         <zorder>label_76</zorder>
+         <zorder>porte1_2</zorder>
+         <zorder>porte1_3</zorder>
+         <zorder>vanne2_2</zorder>
+         <zorder>vanne2_4</zorder>
+         <zorder>label_72</zorder>
+         <zorder>feux2_2</zorder>
+         <zorder>feux2_3</zorder>
         </widget>
        </item>
       </layout>
