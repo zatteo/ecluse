@@ -4,19 +4,21 @@
 #include <QTimer>
 #include <QThread>
 #include <QDebug>
+#include <QSignalMapper>
 
 class Porte : public QThread
 {
     Q_OBJECT
 
 public:
-    explicit Porte(QObject *parent = 0);
+    explicit Porte(int, QObject *parent = 0);
 
 protected:
     void run();
 
 signals:
-    int etatPorte(int);
+    int porteOuverte();
+    int porteFermee();
     int positionPorte(int);
     void alarmePorte(int);
 
@@ -25,13 +27,15 @@ public slots:
     void fermeture();
     void arret();
     void urgence();
-    void deplacementPorte(int);
+    void portePlusUn();
+    void porteMoinsUn();
     void mettreAlarme(int); // 1 = panne, 0 = urgence
     void enleverAlarme();
     void mettrePanne();
     void enleverPanne();
-    bool isPanne();
-    bool isAlarme();
+    bool estPanne();
+    bool estAlarme();
+    int getID();
 
 private:
     int etat; // 4 = ouvert, 3 = en ouverture, 2 = fermé, 1 = en fermeture, 0 = arrêtée
@@ -40,6 +44,7 @@ private:
     QTimer timer;
 
     int position;
+    int id;
 };
 
 #endif // PORTE_H
