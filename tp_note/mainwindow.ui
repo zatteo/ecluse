@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_1">
      <property name="enabled">
@@ -1089,7 +1089,7 @@ font: 14pt &quot;Ubuntu&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>1227</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

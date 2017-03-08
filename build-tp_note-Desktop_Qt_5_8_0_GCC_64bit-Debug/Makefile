@@ -767,13 +767,14 @@ moc_mainwindow.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QMainWi
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtGui/qicon.h \
 		../tp_note/ecluse.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QDebug \
 		../tp_note/vanne.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/porte.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/signallumineux.h \
 		../tp_note/mainwindow.h \
 		moc_predefs.h \
@@ -828,20 +829,36 @@ moc_ecluse.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QDebug \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qiodevice.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		../tp_note/vanne.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/porte.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/signallumineux.h \
 		../tp_note/ecluse.h \
 		moc_predefs.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/bin/moc
 	/home/zatteo/Desktop/qt/5.8/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/zatteo/Desktop/qt/5.8/gcc_64/mkspecs/linux-g++ -I/home/zatteo/Courses/l3s6/interface_homme_machine/tp_note/tp_note -I/home/zatteo/Desktop/qt/5.8/gcc_64/include -I/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets -I/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtGui -I/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore -I. -I/usr/include/c++/6.3.1 -I/usr/include/c++/6.3.1/x86_64-redhat-linux -I/usr/include/c++/6.3.1/backward -I/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include -I/usr/local/include -I/usr/include ../tp_note/ecluse.h -o moc_ecluse.cpp
 
-moc_vanne.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
+moc_vanne.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qnamespace.h \
@@ -889,15 +906,28 @@ moc_vanne.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QDebug \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qiodevice.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		../tp_note/vanne.h \
 		moc_predefs.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/bin/moc
 	/home/zatteo/Desktop/qt/5.8/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/zatteo/Desktop/qt/5.8/gcc_64/mkspecs/linux-g++ -I/home/zatteo/Courses/l3s6/interface_homme_machine/tp_note/tp_note -I/home/zatteo/Desktop/qt/5.8/gcc_64/include -I/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets -I/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtGui -I/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore -I. -I/usr/include/c++/6.3.1 -I/usr/include/c++/6.3.1/x86_64-redhat-linux -I/usr/include/c++/6.3.1/backward -I/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include -I/usr/local/include -I/usr/include ../tp_note/vanne.h -o moc_vanne.cpp
 
-moc_porte.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+moc_porte.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -920,6 +950,10 @@ moc_porte.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qchar.h \
@@ -942,17 +976,30 @@ moc_porte.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QDebug \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qiodevice.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		../tp_note/porte.h \
 		moc_predefs.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/bin/moc
 	/home/zatteo/Desktop/qt/5.8/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/zatteo/Desktop/qt/5.8/gcc_64/mkspecs/linux-g++ -I/home/zatteo/Courses/l3s6/interface_homme_machine/tp_note/tp_note -I/home/zatteo/Desktop/qt/5.8/gcc_64/include -I/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets -I/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtGui -I/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore -I. -I/usr/include/c++/6.3.1 -I/usr/include/c++/6.3.1/x86_64-redhat-linux -I/usr/include/c++/6.3.1/backward -I/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include -I/usr/local/include -I/usr/include ../tp_note/porte.h -o moc_porte.cpp
 
-moc_signallumineux.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
+moc_signallumineux.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qnamespace.h \
@@ -1000,6 +1047,21 @@ moc_signallumineux.cpp: /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObjec
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QDebug \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qiodevice.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		../tp_note/signallumineux.h \
 		moc_predefs.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/bin/moc
@@ -1131,13 +1193,14 @@ main.o: ../tp_note/main.cpp ../tp_note/mainwindow.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtGui/qicon.h \
 		../tp_note/ecluse.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QDebug \
 		../tp_note/vanne.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/porte.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/signallumineux.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QApplication \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qapplication.h \
@@ -1255,13 +1318,14 @@ mainwindow.o: ../tp_note/mainwindow.cpp ../tp_note/mainwindow.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtGui/qicon.h \
 		../tp_note/ecluse.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QDebug \
 		../tp_note/vanne.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/porte.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/signallumineux.h \
 		ui_mainwindow.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QVariant \
@@ -1277,11 +1341,17 @@ mainwindow.o: ../tp_note/mainwindow.cpp ../tp_note/mainwindow.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtGui/qinputmethod.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QButtonGroup \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QFrame \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qframe.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QHeaderView \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qheaderview.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qabstractitemview.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qframe.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qabstractitemmodel.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qitemselectionmodel.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -1294,21 +1364,37 @@ mainwindow.o: ../tp_note/mainwindow.cpp ../tp_note/mainwindow.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qstyle.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qtabbar.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QLineEdit \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtGui/qtextcursor.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtGui/qtextformat.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtGui/qpen.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtGui/qtextoption.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QMenuBar \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qmenubar.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qmenu.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QProgressBar \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qprogressbar.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QPushButton \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QStackedWidget \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qstackedwidget.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QStatusBar \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qstatusbar.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QToolBar \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/qtoolbar.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../tp_note/mainwindow.cpp
 
-ecluse.o: ../tp_note/ecluse.cpp ../tp_note/ecluse.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+ecluse.o: ../tp_note/ecluse.cpp /home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QDebug \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -1331,91 +1417,58 @@ ecluse.o: ../tp_note/ecluse.cpp ../tp_note/ecluse.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qhash.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qchar.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qiterator.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qlist.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qrefcount.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qarraydata.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qlist.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qiterator.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qpair.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstringlist.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qiodevice.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmetatype.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../tp_note/ecluse.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
 		../tp_note/vanne.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/porte.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		../tp_note/signallumineux.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ecluse.o ../tp_note/ecluse.cpp
 
 vanne.o: ../tp_note/vanne.cpp ../tp_note/vanne.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qnamespace.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qglobal.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qconfig.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtcore-config.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsystemdetection.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qprocessordetection.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcompilerdetection.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtypeinfo.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsysinfo.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qlogging.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qflags.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtypetraits.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qatomic.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasicatomic.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qgenericatomic.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qatomic_cxx11.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qatomic_msvc.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qglobalstatic.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmutex.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qnumeric.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qchar.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbytearray.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qarraydata.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qlist.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qiterator.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qpair.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstringlist.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qregexp.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmetatype.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject_impl.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o vanne.o ../tp_note/vanne.cpp
-
-porte.o: ../tp_note/porte.cpp ../tp_note/porte.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qnamespace.h \
@@ -1463,15 +1516,96 @@ porte.o: ../tp_note/porte.cpp ../tp_note/porte.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QDebug \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qiodevice.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o vanne.o ../tp_note/vanne.cpp
+
+porte.o: ../tp_note/porte.cpp ../tp_note/porte.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QTimer \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtimer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qglobal.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qconfig.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtcore-config.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsysinfo.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qlogging.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qflags.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtypetraits.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qatomic.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmutex.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qnumeric.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbasictimer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qchar.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qrefcount.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qarraydata.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qlist.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qiterator.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qpair.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstringlist.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qregexp.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmetatype.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QDebug \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qiodevice.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o porte.o ../tp_note/porte.cpp
 
 signallumineux.o: ../tp_note/signallumineux.cpp ../tp_note/signallumineux.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QObject \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QThread \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qthread.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qnamespace.h \
@@ -1518,7 +1652,22 @@ signallumineux.o: ../tp_note/signallumineux.cpp ../tp_note/signallumineux.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmetatype.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
-		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject_impl.h
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/QDebug \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qiodevice.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/zatteo/Desktop/qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o signallumineux.o ../tp_note/signallumineux.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
