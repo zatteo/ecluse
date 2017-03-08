@@ -9,6 +9,8 @@ Vanne::Vanne(QObject *parent) : QThread(parent)
 
 void Vanne::ouverture()
 {
+    qDebug() << "Ouverture de la vanne...";
+
     if(alarme || etat == 1) // porte déjà ouverte
         return;
 
@@ -19,6 +21,8 @@ void Vanne::ouverture()
 
 void Vanne::fermeture()
 {
+    qDebug() << "Fermeture de la vanne...";
+
     if(alarme || etat == 0) // porte déjà fermée
         return;
 
@@ -29,6 +33,8 @@ void Vanne::fermeture()
 
 void Vanne::urgence()
 {
+    qDebug() << "Urgence.";
+
     if(alarme)
         return;
 
@@ -38,23 +44,31 @@ void Vanne::urgence()
 
 void Vanne::mettreAlarme(int i)
 {
+    qDebug() << "Alarme ON.";
+
     alarme = true;
     emit alarmeVanne(i);
 }
 
 void Vanne::enleverAlarme()
 {
+    qDebug() << "Alarme OFF.";
+
     alarme = false;
 }
 
 void Vanne::mettrePanne()
 {
+    qDebug() << "Panne ON.";
+
     panne = true;
     mettreAlarme(1);
 }
 
 void Vanne::enleverPanne()
 {
+    qDebug() << "Panne OFF.";
+
     panne = false;
 }
 
