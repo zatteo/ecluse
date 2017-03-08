@@ -151,6 +151,10 @@ void Ecluse::avalVersAmont1()
 
 void Ecluse::avalVersAmont2()
 {
+    disconnect(vanneAval, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAval()));
+    disconnect(vanneAval, SIGNAL(vanneFermee()), this, SLOT(ouverturePorteAval()));
+    disconnect(porteAval, SIGNAL(porteOuverte()), this, SLOT(avalVersAmont2()));
+
     qDebug() << "Aval vers Amont 1 terminé";
 
     niveauEcluse = 2;
@@ -169,6 +173,11 @@ void Ecluse::avalVersAmont2bis()
 
 void Ecluse::avalVersAmont3()
 {
+    disconnect(porteAval, SIGNAL(porteFermee()), this, SLOT(ouvertureVanneAmont()));
+    disconnect(vanneAmont, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAmont()));
+    disconnect(vanneAmont, SIGNAL(vanneFermee()), this, SLOT(ouverturePorteAmont()));
+    disconnect(porteAmont, SIGNAL(porteOuverte()), this, SLOT(avalVersAmont3()));
+
     qDebug() << "Aval vers Amont 2 terminé";
 
     niveauEcluse = 3;

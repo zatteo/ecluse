@@ -19,7 +19,18 @@ public:
     Vanne *getVanne(int);
     Porte *getPorte(int);
     SignalLumineux *getSignalLumineux(int);
-    int sens; // 1 = aval vers amont, -1 = amont vers aval
+    int sens = 0; // 1 = aval vers amont, -1 = amont vers aval
+    int niveauEcluse = 0;
+    int niveauEau = 1;
+
+    Vanne * vanneAmont; // vanne 0
+    Vanne * vanneAval; // vanne 1
+
+    Porte * porteAmont; // porte 0
+    Porte * porteAval; // porte 1
+
+    SignalLumineux * signalAmont; // signal 0
+    SignalLumineux * signalAval; // signal 1
 
 signals:
 
@@ -45,20 +56,9 @@ public slots:
 //    void amontVersAval3();
 
 private:
-    Vanne * vanneAmont; // vanne 0
-    Vanne * vanneAval; // vanne 1
-
-    Porte * porteAmont; // porte 0
-    Porte * porteAval; // porte 1
-
-    SignalLumineux * signalAmont; // signal 0
-    SignalLumineux * signalAval; // signal 1
 
     bool alarme;
     bool admin;
-
-    int niveauEcluse = 0;
-    int niveauEau = 1;
 };
 
 #endif // ECLUSE_H

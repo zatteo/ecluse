@@ -21,6 +21,9 @@ signals:
     int porteFermee();
     int positionPorte(int);
     void alarmePorte(int);
+    void signalPorteMoinsUn();
+    void signalPortePlusUn();
+
 
 public slots:
     void ouverture();

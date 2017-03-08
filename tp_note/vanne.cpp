@@ -14,7 +14,6 @@ void Vanne::ouverture()
         return;
     }
 
-    QThread::sleep(2); // simulation d'ouverture de vanne
     etat = 1;
     emit vanneOuverte();
 }
@@ -29,7 +28,6 @@ void Vanne::fermeture()
         return;
     }
 
-    //    sleep(2); // simulation de fermeture de vanne
     etat = 0;
     emit vanneFermee();
 }

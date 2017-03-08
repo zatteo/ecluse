@@ -36,6 +36,12 @@ private slots:
     void monte_eau();
     void baisse_eau();
 
+    void baisseporte1();
+    void baisseporte2();
+    void monteporte1();
+    void monteporte2();
+
+
 
 
 

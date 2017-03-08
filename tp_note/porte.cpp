@@ -33,7 +33,7 @@ void Porte::fermeture()
 
     etat = 1; // on passe en fermeture
 
-    connect(&timer, SIGNAL(timeout()), this, SLOT(porteMoinsUn())); // ouverture
+    connect(&timer, SIGNAL(timeout()), this, SLOT(porteMoinsUn())); // fermeture
     timer.start(1000);
 }
 
@@ -64,14 +64,19 @@ void Porte::portePlusUn()
     if(alarme)
         return;
 
+    qDebug() << "position++";
+
     if(position == 10) // la porte est ouverte et l'objectif était de l'ouvrir
     {
         etat = 4;
+        timer.stop();
+        disconnect(&timer, SIGNAL(timeout()), this, SLOT(portePlusUn()));
         emit porteOuverte();
     }
     else
     {
         position++;
+        emit signalPortePlusUn();
     }
 }
 
@@ -80,14 +85,19 @@ void Porte::porteMoinsUn()
     if(alarme)
         return;
 
+    qDebug() << "position--";
+
     if(position == 0) // la porte est ouverte et l'objectif était de l'ouvrir
     {
         etat = 2;
+        timer.stop();
+        disconnect(&timer, SIGNAL(timeout()), this, SLOT(porteMoinsUn()));
         emit porteFermee();
     }
     else
     {
         position--;
+        emit signalPorteMoinsUn();
     }
 }
 

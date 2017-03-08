@@ -29,6 +29,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Button_auth2, SIGNAL(clicked(bool)), this, SLOT(auth()));
     QObject::connect(ui->Button_auth3, SIGNAL(clicked(bool)), this, SLOT(auth()));
 
+    QObject::connect(e.porteAmont, SIGNAL(signalPortePlusUn()), this, SLOT(baisseporte1()));
+    QObject::connect(e.porteAmont, SIGNAL(signalPorteMoinsUn()), this, SLOT(monteporte1()));
+    QObject::connect(e.porteAval, SIGNAL(signalPortePlusUn()), this, SLOT(baisseporte2()));
+    QObject::connect(e.porteAval, SIGNAL(signalPorteMoinsUn()), this, SLOT(monteporte2()));
+
+
 }
 
 MainWindow::~MainWindow()
@@ -67,6 +73,20 @@ void MainWindow::baisse_eau()
         QThread::msleep(300);
     }
 }
+
+void MainWindow::baisseporte1()
+{
+    ui->porte1->move( ui->eau1->pos().x() , (ui->eau1->pos().y() + 5 ));
+    ui->porte3->move( ui->eau1->pos().x() , (ui->eau2->pos().y() + 5 ));
+}
+
+void MainWindow::baisseporte2()
+{
+    ui->porte2->move( ui->eau1->pos().x() , (ui->eau1->pos().y() + 5 ));
+    ui->porte4->move( ui->eau1->pos().x() , (ui->eau2->pos().y() + 5 ));
+}
+
+
 void MainWindow::monte_eau()
 {
     for(int i=0; i< 10; i++)
@@ -78,14 +98,28 @@ void MainWindow::monte_eau()
     }
 }
 
+void MainWindow::monteporte1()
+{
+    ui->porte1->move( ui->eau1->pos().x() , (ui->eau1->pos().y() - 5 ));
+    ui->porte3->move( ui->eau1->pos().x() , (ui->eau2->pos().y() - 5 ));
+}
+
+void MainWindow::monteporte2()
+{
+    ui->porte2->move( ui->eau1->pos().x() , (ui->eau1->pos().y() - 5 ));
+    ui->porte4->move( ui->eau1->pos().x() , (ui->eau2->pos().y() - 5 ));
+}
 
 void MainWindow::on_Button_Amont_Aval_3_clicked()
 {
-    e.sens = -1; // 1 = aval vers amont, -1 = amont vers aval
+    e.sens = -1;
 
-    rendu_ouvre_vanne1();
-    baisse_eau();
-    rendu_ferme_vanne1();
+    if(e.niveauEau == 0)
+    {
+        rendu_ouvre_vanne1();
+        monte_eau();
+        rendu_ferme_vanne1();
+    }
 
     ui->stackedWidget->setCurrentIndex(1);
     ui->label_3->setText("Lorsque vous êtes dans le sas:");
@@ -96,17 +130,22 @@ void MainWindow::on_Button_Amont_Aval_3_clicked()
     }
 }
 
-
 void MainWindow::on_Button_Aval_Amont_3_clicked()
 {
-    e.sens = 1; // 1 = aval vers amont, -1 = amont vers aval
+    e.sens = 1;
+
+    if(e.niveauEau == 1)
+    {
+        rendu_ouvre_vanne2();
+        baisse_eau();
+        rendu_ferme_vanne2();
+    }
+
+    e.avalVersAmont1();
 
     ui->stackedWidget->setCurrentIndex(1);
     ui->label_3->setText("Lorsque vous êtes sortit du sas:");
     ui->Button_Amont_Aval_4->setText("Fermer la porte");
-
-    e.avalVersAmont1();
-
     for(int i=0; i< 34; i++)
     {
      ui->progressBar_2->setValue(i);
@@ -117,6 +156,15 @@ void MainWindow::on_Button_Amont_Aval_4_clicked()
 {
     if(ui->progressBar_2->value()  < 65)
     {
+        // partie 2
+        if(e.niveauEcluse == 2)
+        {
+            if(e.sens == 1)
+            {
+                e.avalVersAmont2bis();
+            }
+        }
+
         for(int i=34; i< 67; i++)
         {
             ui->progressBar_2->setValue(i);
@@ -126,6 +174,15 @@ void MainWindow::on_Button_Amont_Aval_4_clicked()
     }
     else
     {
+        // partie 3
+        if(e.niveauEcluse == 3)
+        {
+            if(e.sens == 1)
+            {
+                e.avalVersAmont3bis();
+            }
+        }
+
         ui->stackedWidget->setCurrentIndex(0);
     }
 }
