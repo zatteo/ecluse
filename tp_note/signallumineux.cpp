@@ -2,18 +2,18 @@
 
 void SignalLumineux::run(){}
 
-SignalLumineux::SignalLumineux(QObject *parent) : QThread(parent){}
+SignalLumineux::SignalLumineux(int id1, QObject *parent) : QThread(parent){id = id1;}
 
 void SignalLumineux::rouge()
 {
-    qDebug() << "Signal rouge.";
+    qDebug() << "Signal rouge sur le feu" << getID();
 
     etat = 0;
 }
 
 void SignalLumineux::vert()
 {
-    qDebug() << "Signal vert.";
+    qDebug() << "Signal vert sur le feu" << getID();
 
     etat = 1;
 }
@@ -21,4 +21,9 @@ void SignalLumineux::vert()
 int SignalLumineux::getEtat()
 {
     return etat;
+}
+
+int SignalLumineux::getID()
+{
+    return id;
 }

@@ -3,156 +3,186 @@
 
 Ecluse::Ecluse(QObject *parent) : QObject(parent)
 {
+    vanneAmont = new Vanne(AMONT); // vanne 0
+    vanneAval = new Vanne(AVAL); // vanne 1
+
+    porteAmont = new Porte(AMONT); // porte 0
+    porteAval = new Porte(AVAL); // porte 1
+
+    signalAmont = new SignalLumineux(AMONT); // signal 0
+    signalAval = new SignalLumineux(AVAL); // signal 1
+
     admin = false;
 
-    vanneAmont.start();
-    vanneAval.start();
-    porteAmont.start();
-    porteAval.start();
-    signalAmont.start();
-    signalAval.start();
+    vanneAmont->start();
+    vanneAval->start();
+    porteAmont->start();
+    porteAval->start();
+    signalAmont->start();
+    signalAval->start();
 }
 
-Vanne Ecluse::getVanne(int i)
+Vanne * Ecluse::getVanne(int i)
 {
-//    if(i == AMONT)
-//    {
-//        return vanneAmont;
-//    }
-//    else if(i == AVAL)
-//    {
-//        return vanneAval;
-//    }
+    if(i == AMONT)
+    {
+        return vanneAmont;
+    }
+    else if(i == AVAL)
+    {
+        return vanneAval;
+    }
+
+    return NULL;
 }
 
-Porte Ecluse::getPorte(int i)
+Porte * Ecluse::getPorte(int i)
 {
-//    if(i == AMONT)
-//    {
-//        return porteAmont;
-//    }
-//    else if(i == AVAL)
-//    {
-//        return porteAval;
-//    }
+    if(i == AMONT)
+    {
+        return porteAmont;
+    }
+    else if(i == AVAL)
+    {
+        return porteAval;
+    }
+
+    return NULL;
 }
 
-SignalLumineux Ecluse::getSignalLumineux(int i)
+SignalLumineux * Ecluse::getSignalLumineux(int i)
 {
-//    if(i == AMONT)
-//    {
-//        return signalAmont;
-//    }
-//    else if(i == AVAL)
-//    {
-//        return signalAval;
-//    }
+    if(i == AMONT)
+    {
+        return signalAmont;
+    }
+    else if(i == AVAL)
+    {
+        return signalAval;
+    }
+
+    return NULL;
 }
 
-void Ecluse::ouvertureVannes(int i)
+void Ecluse::ouvertureVanneAval()
 {
-    if(i == -1)
-    {
-        vanneAmont.ouverture();
-        vanneAval.ouverture();
-    }
-    else if(i == 0)
-    {
-        vanneAmont.ouverture();
-    }
-    else if(i == 1)
-    {
-        vanneAval.ouverture();
-    }
+    vanneAval->ouverture();
 }
 
-void Ecluse::fermetureVannes(int i)
+void Ecluse::ouvertureVanneAmont()
 {
-    if(i == -1)
-    {
-        vanneAmont.fermeture();
-        vanneAval.fermeture();
-    }
-    else if(i == 0)
-    {
-        vanneAmont.fermeture();
-    }
-    else if(i == 1)
-    {
-        vanneAval.fermeture();
-    }
+    vanneAmont->ouverture();
 }
 
-void Ecluse::ouverturePortes(int i)
+void Ecluse::fermetureVanneAval()
 {
-    if(i == -1)
-    {
-        porteAmont.ouverture();
-        porteAval.ouverture();
-    }
-    else if(i == 0)
-    {
-        porteAmont.ouverture();
-    }
-    else if(i == 1)
-    {
-        porteAval.ouverture();
-    }
-
+    vanneAval->fermeture();
 }
 
-void Ecluse::fermeturePortes(int i)
+void Ecluse::fermetureVanneAmont()
 {
-    if(i == -1)
-    {
-        porteAmont.fermeture();
-        porteAval.fermeture();
-    }
-    else if(i == 0)
-    {
-        porteAmont.fermeture();
-    }
-    else if(i == 1)
-    {
-        porteAmont.fermeture();
-    }
+    vanneAmont->fermeture();
+}
+
+void Ecluse::ouverturePorteAval()
+{
+    porteAval->ouverture();
+}
+
+void Ecluse::ouverturePorteAmont()
+{
+    porteAmont->ouverture();
+}
+
+void Ecluse::fermeturePorteAval()
+{
+    porteAval->fermeture();
+}
+
+void Ecluse::fermeturePorteAmont()
+{
+    porteAmont->fermeture();
 }
 
 void Ecluse::urgence()
 {
     alarme = true;
 
-    vanneAmont.urgence();
-    vanneAval.urgence();
-    porteAmont.urgence();
-    porteAval.urgence();
+    vanneAmont->urgence();
+    vanneAval->urgence();
+    porteAmont->urgence();
+    porteAval->urgence();
 
-    signalAmont.rouge();
-    signalAval.rouge();
+    signalAmont->rouge();
+    signalAval->rouge();
 }
 
 void Ecluse::enleverAlarme()
 {
     alarme = false;
 
-    vanneAmont.enleverAlarme();
-    vanneAval.enleverAlarme();
-    porteAmont.enleverAlarme();
-    porteAval.enleverAlarme();
+    vanneAmont->enleverAlarme();
+    vanneAval->enleverAlarme();
+    porteAmont->enleverAlarme();
+    porteAval->enleverAlarme();
 }
 
-void Ecluse::avalVersAmont()
+void Ecluse::avalVersAmont1()
 {
-//    QDebug() << "Aval vers Amont...";
+    qDebug() << "Aval vers Amont 1";
 
-//    ouvertureVannes(AVAL);
+    niveauEcluse = 1;
 
-//    connect(getVanne(AVAL), this, SLOT(), this);
-
-    // ouverture une des portes
+    if(niveauEau == 1)
+    {
+        qDebug() << "Niveau d'eau à 1";
+        connect(vanneAval, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAval()));
+        connect(vanneAval, SIGNAL(vanneFermee()), this, SLOT(ouverturePorteAval()));
+        connect(porteAval, SIGNAL(porteOuverte()), this, SLOT(avalVersAmont2()));
+        ouvertureVanneAval();
+    }
+    else
+    {
+        qDebug() << "Niveau d'eau à 0";
+        connect(porteAval, SIGNAL(porteOuverte()), this, SLOT(avalVersAmont2()));
+        ouverturePorteAval();
+    }
 }
 
-void Ecluse::amontVersAval()
+void Ecluse::avalVersAmont2()
+{
+    qDebug() << "Aval vers Amont 1 terminé";
+
+    niveauEcluse = 2;
+}
+
+void Ecluse::avalVersAmont2bis()
+{
+    qDebug() << "Aval vers Amont 2";
+
+    connect(porteAval, SIGNAL(porteFermee()), this, SLOT(ouvertureVanneAmont()));
+    connect(vanneAmont, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAmont()));
+    connect(vanneAmont, SIGNAL(vanneFermee()), this, SLOT(ouverturePorteAmont()));
+    connect(porteAmont, SIGNAL(porteOuverte()), this, SLOT(avalVersAmont3()));
+    fermeturePorteAval();
+}
+
+void Ecluse::avalVersAmont3()
+{
+    qDebug() << "Aval vers Amont 2 terminé";
+
+    niveauEcluse = 3;
+}
+
+void Ecluse::avalVersAmont3bis()
+{
+    qDebug() << "Aval vers Amont 3";
+
+    connect(porteAmont, SIGNAL(porteFermee()), this, SLOT(fin()));
+    fermeturePorteAmont();
+}
+
+void Ecluse::amontVersAval1()
 {
 //    QDebug() << "Amont vers Aval...";
 }

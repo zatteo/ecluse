@@ -81,9 +81,12 @@ void MainWindow::monte_eau()
 
 void MainWindow::on_Button_Amont_Aval_3_clicked()
 {
+    e.sens = -1; // 1 = aval vers amont, -1 = amont vers aval
+
     rendu_ouvre_vanne1();
     baisse_eau();
     rendu_ferme_vanne1();
+
     ui->stackedWidget->setCurrentIndex(1);
     ui->label_3->setText("Lorsque vous êtes dans le sas:");
     ui->Button_Amont_Aval_4->setText("Fermer la porte");
@@ -96,13 +99,18 @@ void MainWindow::on_Button_Amont_Aval_3_clicked()
 
 void MainWindow::on_Button_Aval_Amont_3_clicked()
 {
-     ui->stackedWidget->setCurrentIndex(1);
-     ui->label_3->setText("Lorsque vous êtes sortit du sas:");
-     ui->Button_Amont_Aval_4->setText("Fermer la porte");
-     for(int i=0; i< 34; i++)
-     {
-         ui->progressBar_2->setValue(i);
-     }
+    e.sens = 1; // 1 = aval vers amont, -1 = amont vers aval
+
+    ui->stackedWidget->setCurrentIndex(1);
+    ui->label_3->setText("Lorsque vous êtes sortit du sas:");
+    ui->Button_Amont_Aval_4->setText("Fermer la porte");
+
+    e.avalVersAmont1();
+
+    for(int i=0; i< 34; i++)
+    {
+     ui->progressBar_2->setValue(i);
+    }
 }
 
 void MainWindow::on_Button_Amont_Aval_4_clicked()

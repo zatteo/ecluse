@@ -2,38 +2,41 @@
 
 void Vanne::run(){}
 
-Vanne::Vanne(QObject *parent) : QThread(parent)
-{
-
-}
+Vanne::Vanne(int id1, QObject *parent) : QThread(parent){id = id1;}
 
 void Vanne::ouverture()
 {
-    qDebug() << "Ouverture de la vanne...";
+    qDebug() << "Ouverture de la vanne" << getID();
 
     if(alarme || etat == 1) // porte déjà ouverte
+    {
+        emit vanneOuverte();
         return;
+    }
 
-    sleep(2); // simulation d'ouverture de vanne
+    QThread::sleep(2); // simulation d'ouverture de vanne
     etat = 1;
-    emit etatVanne(etat);
+    emit vanneOuverte();
 }
 
 void Vanne::fermeture()
 {
-    qDebug() << "Fermeture de la vanne...";
+    qDebug() << "Fermeture de la vanne" << getID();
 
     if(alarme || etat == 0) // porte déjà fermée
+    {
+        emit vanneFermee();
         return;
+    }
 
-    sleep(2); // simulation de fermeture de vanne
+    //    sleep(2); // simulation de fermeture de vanne
     etat = 0;
-    emit etatVanne(etat);
+    emit vanneFermee();
 }
 
 void Vanne::urgence()
 {
-    qDebug() << "Urgence.";
+    qDebug() << "Urgence sur la vanne" << getID();
 
     if(alarme)
         return;
@@ -44,7 +47,7 @@ void Vanne::urgence()
 
 void Vanne::mettreAlarme(int i)
 {
-    qDebug() << "Alarme ON.";
+    qDebug() << "Alarme ON sur la vanne" << getID();
 
     alarme = true;
     emit alarmeVanne(i);
@@ -52,14 +55,14 @@ void Vanne::mettreAlarme(int i)
 
 void Vanne::enleverAlarme()
 {
-    qDebug() << "Alarme OFF.";
+    qDebug() << "Alarme OFF sur la vanne" << getID();
 
     alarme = false;
 }
 
 void Vanne::mettrePanne()
 {
-    qDebug() << "Panne ON.";
+    qDebug() << "Panne ON sur la vanne" << getID();
 
     panne = true;
     mettreAlarme(1);
@@ -67,17 +70,22 @@ void Vanne::mettrePanne()
 
 void Vanne::enleverPanne()
 {
-    qDebug() << "Panne OFF.";
+    qDebug() << "Panne OFF sur la vanne" << getID();
 
     panne = false;
 }
 
-bool Vanne::isPanne()
+bool Vanne::estPanne()
 {
     return panne;
 }
 
-bool Vanne::isAlarme()
+bool Vanne::estAlarme()
 {
     return alarme;
+}
+
+int Vanne::getID()
+{
+    return id;
 }

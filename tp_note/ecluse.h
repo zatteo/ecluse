@@ -16,34 +16,49 @@ class Ecluse : public QObject
 
 public:
     explicit Ecluse(QObject *parent = 0);
-    void avalVersAmont();
-    void amontVersAval();
-    Vanne getVanne(int);
-    Porte getPorte(int);
-    SignalLumineux getSignalLumineux(int);
+    Vanne *getVanne(int);
+    Porte *getPorte(int);
+    SignalLumineux *getSignalLumineux(int);
+    int sens; // 1 = aval vers amont, -1 = amont vers aval
 
 signals:
 
 public slots:
-    void ouvertureVannes(int);
-    void fermetureVannes(int);
-    void ouverturePortes(int);
-    void fermeturePortes(int);
+    void ouvertureVanneAval();
+    void ouvertureVanneAmont();
+    void fermetureVanneAval();
+    void fermetureVanneAmont();
+    void ouverturePorteAval();
+    void ouverturePorteAmont();
+    void fermeturePorteAval();
+    void fermeturePorteAmont();
     void urgence();
     void enleverAlarme();
 
+    void avalVersAmont1();
+    void avalVersAmont2();
+    void avalVersAmont2bis();
+    void avalVersAmont3();
+    void avalVersAmont3bis();
+    void amontVersAval1();
+//    void amontVersAval2();
+//    void amontVersAval3();
+
 private:
-    Vanne vanneAmont; // vanne 0
-    Vanne vanneAval; // vanne 1
+    Vanne * vanneAmont; // vanne 0
+    Vanne * vanneAval; // vanne 1
 
-    Porte porteAmont; // porte 0
-    Porte porteAval; // porte 1
+    Porte * porteAmont; // porte 0
+    Porte * porteAval; // porte 1
 
-    SignalLumineux signalAmont; // signal 0
-    SignalLumineux signalAval; // signal 1
+    SignalLumineux * signalAmont; // signal 0
+    SignalLumineux * signalAval; // signal 1
 
     bool alarme;
     bool admin;
+
+    int niveauEcluse = 0;
+    int niveauEau = 1;
 };
 
 #endif // ECLUSE_H
