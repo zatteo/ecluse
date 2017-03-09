@@ -160,19 +160,16 @@ void MainWindow::rendu_ferme_vanne2()
 
 void MainWindow::feu_aval()
 {
-    qDebug() << "feu aval";
     if(!e.admin) // on actualise pas le feu si on est en administration (controle total)
     {
         if(e.signalAval->etat == 0)
         {
-            qDebug() << "rouige";
             ui->feux2_3->setStyleSheet("background-color:rgb(239, 41, 41);");
             ui->feux2->setStyleSheet("background-color:rgb(239, 41, 41);");
             ui->feux4->setStyleSheet("background-color:rgb(239, 41, 41);");
         }
         else
         {
-            qDebug() << "vert";
             ui->feux2_3->setStyleSheet("background-color: rgb(78, 154, 6);");
             ui->feux2->setStyleSheet("background-color: rgb(78, 154, 6);");
             ui->feux4->setStyleSheet("background-color: rgb(78, 154, 6);");
@@ -184,14 +181,12 @@ void MainWindow::feu_aval_admin()
 {
     if(e.signalAval->etat == 0)
     {
-        qDebug() << "rouige";
         ui->feux2_3->setStyleSheet("background-color:rgb(239, 41, 41);");
         ui->feux2->setStyleSheet("background-color:rgb(239, 41, 41);");
         ui->feux4->setStyleSheet("background-color:rgb(239, 41, 41);");
     }
     else
     {
-        qDebug() << "vert";
         ui->feux2_3->setStyleSheet("background-color: rgb(78, 154, 6);");
         ui->feux2->setStyleSheet("background-color: rgb(78, 154, 6);");
         ui->feux4->setStyleSheet("background-color: rgb(78, 154, 6);");
@@ -200,19 +195,16 @@ void MainWindow::feu_aval_admin()
 
 void MainWindow::feu_amont()
 {
-    qDebug() << "feu amont";
     if(!e.admin) // on actualise pas le feu si on est en administration (controle total)
     {
         if(e.signalAmont->etat == 0)
         {
-            qDebug() << "rouge";
             ui->feux2_2->setStyleSheet("background-color:rgb(239, 41, 41);");
             ui->feux1->setStyleSheet("background-color:rgb(239, 41, 41);");
             ui->feux3->setStyleSheet("background-color:rgb(239, 41, 41);");
         }
         else
         {
-            qDebug() << "vert";
             ui->feux2_2->setStyleSheet("background-color: rgb(78, 154, 6);");
             ui->feux1->setStyleSheet("background-color: rgb(78, 154, 6);");
             ui->feux3->setStyleSheet("background-color: rgb(78, 154, 6);");
@@ -224,14 +216,12 @@ void MainWindow::feu_amont_admin()
 {
     if(e.signalAmont->etat == 0)
     {
-        qDebug() << "rouige";
         ui->feux2_2->setStyleSheet("background-color:rgb(239, 41, 41);");
         ui->feux1->setStyleSheet("background-color:rgb(239, 41, 41);");
         ui->feux3->setStyleSheet("background-color:rgb(239, 41, 41);");
     }
     else
     {
-        qDebug() << "vert";
         ui->feux2_2->setStyleSheet("background-color: rgb(78, 154, 6);");
         ui->feux1->setStyleSheet("background-color: rgb(78, 154, 6);");
         ui->feux3->setStyleSheet("background-color: rgb(78, 154, 6);");
