@@ -33,6 +33,14 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(e.porteAmont, SIGNAL(signalPorteMoinsUn()), this, SLOT(monteporte1()));
     QObject::connect(e.porteAval, SIGNAL(signalPortePlusUn()), this, SLOT(baisseporte2()));
     QObject::connect(e.porteAval, SIGNAL(signalPorteMoinsUn()), this, SLOT(monteporte2()));
+
+    QObject::connect(e.vanneAmont, SIGNAL(signalVannePlusUn()), this, SLOT(monte_eau()));
+    QObject::connect(e.vanneAval, SIGNAL(signalVannePlusUn()), this, SLOT(baisse_eau()));
+
+    QObject::connect(e.vanneAmont, SIGNAL(signalVanneFermee()), this, SLOT(rendu_ferme_vanne1()));
+    QObject::connect(e.vanneAmont, SIGNAL(signalVanneOuverte()), this, SLOT(rendu_ouvre_vanne1()));
+    QObject::connect(e.vanneAval, SIGNAL(signalVanneFermee()), this, SLOT(rendu_ferme_vanne2()));
+    QObject::connect(e.vanneAval, SIGNAL(signalVanneOuverte()), this, SLOT(rendu_ouvre_vanne2()));
 }
 
 MainWindow::~MainWindow()
@@ -44,37 +52,28 @@ void MainWindow::rendu_ouvre_vanne1()
 {
     ui->vanne1->setStyleSheet("background-color:rgb(114, 159, 207);");
     ui->vanne3->setStyleSheet("background-color:rgb(114, 159, 207);");
-    e.vanneAmont->etat = 1;
-
 }
 void MainWindow::rendu_ferme_vanne1()
 {
     ui->vanne1->setStyleSheet("background-color:rgb(85, 87, 83);");
     ui->vanne3->setStyleSheet("background-color:rgb(85, 87, 83);");
-    e.vanneAmont->etat = 0;
 }
 void MainWindow::rendu_ouvre_vanne2()
 {
     ui->vanne4->setStyleSheet("background-color:rgb(114, 159, 207);");
     ui->vanne2->setStyleSheet("background-color:rgb(114, 159, 207);");
-    e.vanneAval->etat = 1;
 }
 void MainWindow::rendu_ferme_vanne2()
 {
     ui->vanne2->setStyleSheet("background-color:rgb(85, 87, 83);");
     ui->vanne4->setStyleSheet("background-color:rgb(85, 87, 83);");
-    e.vanneAval->etat = 0;
 }
 
 void MainWindow::baisse_eau()
 {
-    for(int i=0; i< 10; i++)
-    {
         ui->eau1->move( ui->eau1->pos().x() , (ui->eau1->pos().y() + 5 ));
         ui->eau2->move( ui->eau1->pos().x() , (ui->eau2->pos().y() + 5 ));
         QApplication::processEvents();
-        QThread::msleep(300);
-    }
 }
 
 void MainWindow::baisseporte1()
@@ -94,13 +93,9 @@ void MainWindow::baisseporte2()
 
 void MainWindow::monte_eau()
 {
-    for(int i=0; i< 10; i++)
-    {
         ui->eau1->move( ui->eau1->pos().x() , (ui->eau1->pos().y() - 5 ));
         ui->eau2->move( ui->eau1->pos().x() , (ui->eau2->pos().y() - 5 ));
         QApplication::processEvents();
-        QThread::msleep(300);
-    }
 }
 
 void MainWindow::monteporte1()
@@ -121,12 +116,7 @@ void MainWindow::on_Button_Amont_Aval_3_clicked()
 {
     e.sens = -1;
 
-    if(e.niveauEau == 0)
-    {
-        rendu_ouvre_vanne1();
-        monte_eau();
-        rendu_ferme_vanne1();
-    }
+    e.amontVersAval1();
 
     ui->stackedWidget->setCurrentIndex(1);
     ui->label_3->setText("Lorsque vous êtes dans le sas:");
@@ -140,13 +130,6 @@ void MainWindow::on_Button_Amont_Aval_3_clicked()
 void MainWindow::on_Button_Aval_Amont_3_clicked()
 {
     e.sens = 1;
-
-    if(e.niveauEau == 1)
-    {
-        rendu_ouvre_vanne2();
-        baisse_eau();
-        rendu_ferme_vanne2();
-    }
 
     e.avalVersAmont1();
 
@@ -170,6 +153,10 @@ void MainWindow::on_Button_Amont_Aval_4_clicked()
             {
                 e.avalVersAmont2bis();
             }
+            else if(e.sens == -1)
+            {
+                e.amontVersAval2bis();
+            }
         }
 
         for(int i=34; i< 67; i++)
@@ -187,6 +174,10 @@ void MainWindow::on_Button_Amont_Aval_4_clicked()
             if(e.sens == 1)
             {
                 e.avalVersAmont3bis();
+            }
+            else if(e.sens == -1)
+            {
+                e.amontVersAval3bis();
             }
         }
 

@@ -8,13 +8,15 @@ void Vanne::ouverture()
 {
     qDebug() << "Ouverture de la vanne" << getID();
 
-    if(alarme || etat == 1) // porte déjà ouverte
+    if(alarme || etat == 1) // vanne déjà ouverte
     {
-        emit vanneOuverte();
         return;
     }
 
-    emit vanneOuverte();
+    emit signalVanneOuverte();
+
+    connect(&timer, SIGNAL(timeout()), this, SLOT(vannePlusUn())); // ouverture de la vanne
+    timer.start(1000);
 }
 
 void Vanne::fermeture()
@@ -23,12 +25,35 @@ void Vanne::fermeture()
 
     if(alarme || etat == 0) // porte déjà fermée
     {
-        emit vanneFermee();
         return;
     }
 
     etat = 0;
+    ouvertureVanne = 0;
+
+    emit signalVanneFermee();
     emit vanneFermee();
+}
+
+void Vanne::vannePlusUn()
+{
+    if(alarme)
+        return;
+
+    qDebug() << "ouvertureVanne++" ;
+
+    if(ouvertureVanne == 10) // la vanne est ouverte et l'objectif était de l'ouvrir
+    {
+        etat = 1;
+        timer.stop();
+        disconnect(&timer, SIGNAL(timeout()), this, SLOT(vannePlusUn()));
+        emit vanneOuverte();
+    }
+    else
+    {
+        ouvertureVanne++;
+        emit signalVannePlusUn();
+    }
 }
 
 void Vanne::urgence()

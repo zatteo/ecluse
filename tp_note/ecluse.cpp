@@ -193,70 +193,70 @@ void Ecluse::avalVersAmont3bis()
 
 void Ecluse::amontVersAval1()
 {
-    qDebug() << "Aval vers Amont 1";
+    qDebug() << "Amont vers Aval 1";
 
     niveauEcluse = 1;
 
-    if(niveauEau == 1)
+    if(niveauEau == 0)
     {
-        qDebug() << "Niveau d'eau à 1";
-        connect(vanneAval, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAval()));
-        connect(vanneAval, SIGNAL(vanneFermee()), this, SLOT(ouverturePorteAval()));
-        connect(porteAval, SIGNAL(porteOuverte()), this, SLOT(avalVersAmont2()));
-        ouvertureVanneAval();
+        qDebug() << "Niveau d'eau à 0";
+        connect(vanneAmont, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAmont()));
+        connect(vanneAmont, SIGNAL(vanneFermee()), this, SLOT(ouverturePorteAmont()));
+        connect(porteAmont, SIGNAL(porteOuverte()), this, SLOT(amontVersAval2()));
+        ouvertureVanneAmont();
     }
     else
     {
-        qDebug() << "Niveau d'eau à 0";
-        connect(porteAval, SIGNAL(porteOuverte()), this, SLOT(avalVersAmont2()));
-        ouverturePorteAval();
+        qDebug() << "Niveau d'eau à 1";
+        connect(porteAmont, SIGNAL(porteOuverte()), this, SLOT(amontVersAval2()));
+        ouverturePorteAmont();
     }
 }
 
 void Ecluse::amontVersAval2()
 {
-    disconnect(vanneAval, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAval()));
-    disconnect(vanneAval, SIGNAL(vanneFermee()), this, SLOT(ouverturePorteAval()));
-    disconnect(porteAval, SIGNAL(porteOuverte()), this, SLOT(avalVersAmont2()));
-
-    qDebug() << "Aval vers Amont 1 terminé";
+    disconnect(vanneAmont, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAmont()));
+    disconnect(vanneAmont, SIGNAL(vanneFermee()), this, SLOT(ouverturePorteAmont()));
+    disconnect(porteAmont, SIGNAL(porteOuverte()), this, SLOT(amontVersAval2bis()));
+    qDebug() << "Amont vers Aval 1 terminé";
 
     niveauEcluse = 2;
 }
 
 void Ecluse::amontVersAval2bis()
 {
-    qDebug() << "Aval vers Amont 2";
+    qDebug() << "Amont vers Aval 2";
 
-    connect(porteAval, SIGNAL(porteFermee()), this, SLOT(ouvertureVanneAmont()));
-    connect(vanneAmont, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAmont()));
-    connect(vanneAmont, SIGNAL(vanneFermee()), this, SLOT(ouverturePorteAmont()));
-    connect(porteAmont, SIGNAL(porteOuverte()), this, SLOT(avalVersAmont3()));
-    fermeturePorteAval();
+    connect(porteAmont, SIGNAL(porteFermee()), this, SLOT(ouvertureVanneAval()));
+    connect(vanneAval, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAval()));
+    connect(vanneAval, SIGNAL(vanneFermee()), this, SLOT(ouverturePorteAval()));
+    connect(porteAval, SIGNAL(porteOuverte()), this, SLOT(amontVersAval3()));
+    fermeturePorteAmont();
 }
 
 void Ecluse::amontVersAval3()
 {
-    disconnect(porteAval, SIGNAL(porteFermee()), this, SLOT(ouvertureVanneAmont()));
-    disconnect(vanneAmont, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAmont()));
-    disconnect(vanneAmont, SIGNAL(vanneFermee()), this, SLOT(ouverturePorteAmont()));
-    disconnect(porteAmont, SIGNAL(porteOuverte()), this, SLOT(avalVersAmont3()));
+    disconnect(porteAmont, SIGNAL(porteFermee()), this, SLOT(ouvertureVanneAval()));
+    disconnect(vanneAval, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAval()));
+    disconnect(vanneAval, SIGNAL(vanneFermee()), this, SLOT(ouverturePorteAval()));
+    disconnect(porteAval, SIGNAL(porteOuverte()), this, SLOT(amontVersAval3bis()));
 
-    qDebug() << "Aval vers Amont 2 terminé";
+    qDebug() << "Amont vers Aval 2 terminé";
 
     niveauEcluse = 3;
 }
 
 void Ecluse::amontVersAval3bis()
 {
-    qDebug() << "Aval vers Amont 3";
+    qDebug() << "Amont vers Aval 3";
 
-    connect(porteAmont, SIGNAL(porteFermee()), this, SLOT(fin()));
-    fermeturePorteAmont();
+    connect(porteAval, SIGNAL(porteFermee()), this, SLOT(fin()));
+    fermeturePorteAval();
 }
 
 void Ecluse::fin()
 {
     // TODO reset de tout
+    niveauEcluse = 0;
 }
 

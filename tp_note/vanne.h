@@ -3,6 +3,7 @@
 
 #include <QThread>
 #include <QDebug>
+#include <QTimer>
 
 #define AMONT 0
 #define AVAL 1
@@ -22,6 +23,9 @@ signals:
     void vanneOuverte();
     void vanneFermee();
     void alarmeVanne(int);
+    void signalVannePlusUn();
+    void signalVanneOuverte();
+    void signalVanneFermee();
 
 public slots:
     void ouverture();
@@ -34,11 +38,15 @@ public slots:
     bool estPanne();
     bool estAlarme();
     int getID();
+//    void vanneMoinsUn();
+    void vannePlusUn();
 
 private:
     bool panne; // 1 = en panne, 0 = en marche
     bool alarme; // 1 = alarme, 0 = pas d'alarme
+    int ouvertureVanne = 0;
 
+    QTimer timer;
     int id;
 };
 
