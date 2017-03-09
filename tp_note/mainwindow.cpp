@@ -90,21 +90,42 @@ MainWindow::~MainWindow()
 
 void MainWindow::random()
 {
+    QList<QString> list;
+
     if(vanneAmontCK->isChecked())
     {
-        qDebug() << "A";
+        list.append("vanneAmont");
     }
     if(vanneAvalCK->isChecked())
     {
-        qDebug() << "B";
+        list.append("vanneAval");
     }
     if(porteAmontCK->isChecked())
     {
-        qDebug() << "B";
+        list.append("porteAmont");
     }
     if(porteAvalCK->isChecked())
     {
-        qDebug() << "B";
+        list.append("porteAval");
+    }
+
+    int randomValue = qrand() % 3;
+
+    if(list.at(randomValue) == "vanneAmont")
+    {
+        e.vanneAmont->urgence();
+    }
+    else if(list.at(randomValue) == "vanneAval")
+    {
+        e.vanneAval->urgence();
+    }
+    else if(list.at(randomValue) == "porteAmont")
+    {
+        e.porteAmont->urgence();
+    }
+    else if(list.at(randomValue) == "porteAval")
+    {
+        e.porteAval->urgence();
     }
 }
 
