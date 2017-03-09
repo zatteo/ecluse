@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="page_1">
      <property name="enabled">
@@ -1746,7 +1746,7 @@ font: 14pt &quot;Ubuntu&quot;;</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(78, 154, 6)</string>
+           <string notr="true">background-color: rgb(78, 154, 6);</string>
           </property>
           <property name="text">
            <string/>
