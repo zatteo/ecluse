@@ -22,6 +22,7 @@ public:
     int sens = 0; // 1 = aval vers amont, -1 = amont vers aval
     int niveauEcluse = 0;
     int niveauEau = 1;
+    bool admin;
 
     Vanne * vanneAmont; // vanne 0
     Vanne * vanneAval; // vanne 1
@@ -61,9 +62,7 @@ public slots:
     void fin();
 
 private:
-
     bool alarme;
-    bool admin;
 };
 
 #endif // ECLUSE_H

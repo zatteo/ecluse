@@ -98,7 +98,7 @@ void MainWindow::rendu_ferme_vanne2()
 
 void MainWindow::feu_aval()
 {
-    if(!admin) // on actualise pas le feu si on est en administration (controle total)
+    if(!e.admin) // on actualise pas le feu si on est en administration (controle total)
     {
         if(e.signalAval->etat == 0)
         {
@@ -116,7 +116,7 @@ void MainWindow::feu_aval()
 }
 void MainWindow::feu_amont()
 {
-    if(!admin) // on actualise pas le feu si on est en administration (controle total)
+    if(!e.admin) // on actualise pas le feu si on est en administration (controle total)
     {
         if(e.signalAmont->etat == 0)
         {
@@ -146,6 +146,7 @@ void MainWindow::baisseporte1()
 {
     ui->porte1->move( ui->porte1->pos().x() , (ui->porte1->pos().y() + 7 ));
     ui->porte3->move( ui->porte3->pos().x() , (ui->porte3->pos().y() + 7 ));
+    ui->porte1_2->move( ui->porte1_2->pos().x() , (ui->porte1_2->pos().y() + 7 ));
     QApplication::processEvents();
 }
 
@@ -153,6 +154,7 @@ void MainWindow::baisseporte2()
 {
     ui->porte2->move( ui->porte2->pos().x() , (ui->porte2->pos().y() + 7 ));
     ui->porte4->move( ui->porte4->pos().x() , (ui->porte4->pos().y() + 7 ));
+    ui->porte1_3->move( ui->porte1_3->pos().x() , (ui->porte1_3->pos().y() + 7 ));
     QApplication::processEvents();
 }
 
@@ -170,6 +172,7 @@ void MainWindow::monteporte1()
 {
     ui->porte1->move( ui->porte1->pos().x() , (ui->porte1->pos().y() - 7 ));
     ui->porte3->move( ui->porte3->pos().x() , (ui->porte3->pos().y() - 7 ));
+    ui->porte1_2->move( ui->porte1_2->pos().x() , (ui->porte1_2->pos().y() - 7 ));
     QApplication::processEvents();
 }
 
@@ -177,6 +180,8 @@ void MainWindow::monteporte2()
 {
     ui->porte2->move( ui->porte2->pos().x() , (ui->porte2->pos().y() - 7 ));
     ui->porte4->move( ui->porte4->pos().x() , (ui->porte4->pos().y() - 7 ));
+    ui->porte1_3->move( ui->porte1_3->pos().x() , (ui->porte1_3->pos().y() - 7 ));
+
     QApplication::processEvents();
 }
 
@@ -293,6 +298,7 @@ void MainWindow::mdp()
                 code[i]= -1;
             pos = 0;
             ui->stackedWidget->setCurrentIndex(4);
+            e.admin = true;
             if(e.vanneAmont->etat == 1) ui->radioButton->setChecked(true);
             else ui->radioButton_2->setChecked(true);
             if(e.vanneAval->etat == 1) ui->radioButton_9->setChecked(true);
@@ -315,6 +321,24 @@ void MainWindow::mdp()
             else ui->radioButton_8->setChecked(true);
             if(e.signalAval->etat == 0) ui->radioButton_13->setChecked(true);
             else ui->radioButton_14->setChecked(true);
+
+            if(e.niveauEau == 2)
+            {
+                ui->radioButton_11->setEnabled(false);
+                ui->radioButton_12->setEnabled(false);
+            }
+            else if(e.niveauEau == 1)
+            {
+                ui->radioButton_11->setEnabled(false);
+                ui->radioButton_12->setEnabled(false);
+                ui->radioButton_5->setEnabled(false);
+                ui->radioButton_6->setEnabled(false);
+            }
+            else if(e.niveauEau == 0)
+            {
+                ui->radioButton_5->setEnabled(false);
+                ui->radioButton_6->setEnabled(false);
+            }
 
         }
         else
@@ -351,6 +375,7 @@ void MainWindow::on_Button_retour_clicked()
 
 void MainWindow::on_Button_quit_clicked()
 {
+    e.admin = false;
     ui->stackedWidget->setCurrentIndex(0);
 }
 
@@ -446,4 +471,44 @@ void MainWindow::on_radioButton_10_clicked()
         ui->radioButton_11->setEnabled(true);
         ui->radioButton_12->setEnabled(true);
     }
+}
+
+void MainWindow::on_radioButton_5_clicked()
+{
+    ui->radioButton->setEnabled(false);
+    ui->radioButton_2->setEnabled(false);
+    ui->radioButton_9->setEnabled(false);
+    ui->radioButton_10->setEnabled(false);
+    ui->radioButton_11->setEnabled(false);
+    ui->radioButton_12->setEnabled(false);
+    e.ouverturePorteAmont();
+}
+
+void MainWindow::on_radioButton_6_clicked()
+{
+    e.fermeturePorteAmont();
+    ui->radioButton->setEnabled(true);
+    ui->radioButton_2->setEnabled(true);
+    ui->radioButton_9->setEnabled(true);
+    ui->radioButton_10->setEnabled(true);
+}
+
+void MainWindow::on_radioButton_11_clicked()
+{
+    ui->radioButton->setEnabled(false);
+    ui->radioButton_2->setEnabled(false);
+    ui->radioButton_9->setEnabled(false);
+    ui->radioButton_10->setEnabled(false);
+    ui->radioButton_5->setEnabled(false);
+    ui->radioButton_6->setEnabled(false);
+    e.ouverturePorteAval();
+}
+
+void MainWindow::on_radioButton_12_clicked()
+{
+    e.fermeturePorteAval();
+    ui->radioButton->setEnabled(true);
+    ui->radioButton_2->setEnabled(true);
+    ui->radioButton_9->setEnabled(true);
+    ui->radioButton_10->setEnabled(true);
 }

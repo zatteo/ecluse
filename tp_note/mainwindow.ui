@@ -1641,9 +1641,9 @@ font: 14pt &quot;Ubuntu&quot;;</string>
          <widget class="QLabel" name="eau3">
           <property name="geometry">
            <rect>
-            <x>140</x>
+            <x>110</x>
             <y>160</y>
-            <width>121</width>
+            <width>181</width>
             <height>131</height>
            </rect>
           </property>
@@ -1768,11 +1768,11 @@ font: 14pt &quot;Ubuntu&quot;;</string>
            <string/>
           </property>
          </widget>
+         <zorder>eau3</zorder>
+         <zorder>porte1_2</zorder>
          <zorder>label_73</zorder>
          <zorder>label_74</zorder>
-         <zorder>eau3</zorder>
          <zorder>label_76</zorder>
-         <zorder>porte1_2</zorder>
          <zorder>porte1_3</zorder>
          <zorder>vanne2_2</zorder>
          <zorder>vanne2_4</zorder>
