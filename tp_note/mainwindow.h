@@ -74,6 +74,9 @@ private slots:
 
     void on_radioButton_12_clicked();
 
+    void enable();
+    void final_enable();
+
 private:
     Ui::MainWindow *ui;
     Ecluse e;

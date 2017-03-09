@@ -52,6 +52,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(e.porteAval, SIGNAL(signalPorteMoinsUn()), this, SLOT(feu_aval()));
     QObject::connect(e.porteAval, SIGNAL(porteOuverte()), this, SLOT(feu_aval()));
 
+    QObject::connect(e.porteAmont, SIGNAL(porteOuverte()), this, SLOT(enable()));
+    QObject::connect(e.porteAval, SIGNAL(porteOuverte()), this, SLOT(enable()));
+    QObject::connect(e.porteAmont, SIGNAL(porteFermee()), this, SLOT(final_enable()));
+    QObject::connect(e.porteAval, SIGNAL(porteFermee()), this, SLOT(final_enable()));
+
+
     // gestion des incidents
     QObject::connect(e.porteAmont, SIGNAL(alarmePorte()), this, SLOT(incident()));
     QObject::connect(e.porteAval, SIGNAL(alarmePorte()), this, SLOT(incident()));
@@ -185,8 +191,24 @@ void MainWindow::monteporte2()
     QApplication::processEvents();
 }
 
+void MainWindow::enable()
+{
+    ui->Button_Amont_Aval_4->setDisabled(false);
+    ui->Button_auth2->setDisabled(false);
+}
+
+void MainWindow::final_enable()
+{
+    ui->Button_Amont_Aval_3->setDisabled(false);
+    ui->Button_Aval_Amont_3->setDisabled(false);
+    ui->Button_auth1->setDisabled(false);
+}
+
 void MainWindow::on_Button_Amont_Aval_3_clicked()
 {
+    ui->Button_Amont_Aval_3->setDisabled(true);
+    ui->Button_Aval_Amont_3->setDisabled(true);
+    ui->Button_auth1->setDisabled(true);
     e.sens = -1;
 
     e.amontVersAval1();
@@ -194,6 +216,9 @@ void MainWindow::on_Button_Amont_Aval_3_clicked()
     ui->stackedWidget->setCurrentIndex(1);
     ui->label_3->setText("Lorsque vous êtes dans le sas :");
     ui->Button_Amont_Aval_4->setText("Fermer la porte");
+    ui->Button_Amont_Aval_4->setDisabled(true);
+    ui->Button_auth2->setDisabled(true);
+
     for(int i=0; i< 34; i++)
     {
         ui->progressBar_2->setValue(i);
@@ -201,7 +226,7 @@ void MainWindow::on_Button_Amont_Aval_3_clicked()
 }
 
 void MainWindow::on_Button_Aval_Amont_3_clicked()
-{
+{   
     e.sens = 1;
 
     e.avalVersAmont1();
@@ -209,6 +234,8 @@ void MainWindow::on_Button_Aval_Amont_3_clicked()
     ui->stackedWidget->setCurrentIndex(1);
     ui->label_3->setText("Lorsque vous êtes sorti du sas :");
     ui->Button_Amont_Aval_4->setText("Fermer la porte");
+    ui->Button_Amont_Aval_4->setDisabled(true);
+    ui->Button_auth2->setDisabled(true);
     for(int i=0; i< 34; i++)
     {
      ui->progressBar_2->setValue(i);
@@ -217,6 +244,9 @@ void MainWindow::on_Button_Aval_Amont_3_clicked()
 
 void MainWindow::on_Button_Amont_Aval_4_clicked()
 {
+    ui->Button_Amont_Aval_4->setDisabled(true);
+    ui->Button_Amont_Aval_3->setDisabled(true);
+    ui->Button_auth2->setDisabled(true);
     if(ui->progressBar_2->value()  < 65)
     {
         // partie 2
@@ -241,6 +271,11 @@ void MainWindow::on_Button_Amont_Aval_4_clicked()
     }
     else
     {
+        ui->Button_Amont_Aval_4->setDisabled(true);
+        ui->Button_Amont_Aval_3->setDisabled(true);
+        ui->Button_auth2->setDisabled(true);
+        ui->Button_Aval_Amont_3->setDisabled(true);
+        ui->Button_auth1->setDisabled(true);
         // partie 3
         if(e.niveauEcluse == 3)
         {
