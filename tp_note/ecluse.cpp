@@ -86,21 +86,25 @@ void Ecluse::fermetureVanneAmont()
 
 void Ecluse::ouverturePorteAval()
 {
+    signalAval->vert();
     porteAval->ouverture();
 }
 
 void Ecluse::ouverturePorteAmont()
 {
+    signalAmont->vert();
     porteAmont->ouverture();
 }
 
 void Ecluse::fermeturePorteAval()
 {
+    signalAval->rouge();
     porteAval->fermeture();
 }
 
 void Ecluse::fermeturePorteAmont()
 {
+    signalAval->rouge();
     porteAmont->fermeture();
 }
 

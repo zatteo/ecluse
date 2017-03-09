@@ -42,6 +42,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(e.vanneAval, SIGNAL(signalVanneFermee()), this, SLOT(rendu_ferme_vanne2()));
     QObject::connect(e.vanneAval, SIGNAL(signalVanneOuverte()), this, SLOT(rendu_ouvre_vanne2()));
 
+    QObject::connect(e.porteAmont, SIGNAL(signalPorteMoinsUn()), this, SLOT(feu_amont()));
+    QObject::connect(e.porteAmont, SIGNAL(porteOuverte()), this, SLOT(feu_amont()));
+    QObject::connect(e.porteAval, SIGNAL(signalPorteMoinsUn()), this, SLOT(feu_aval()));
+    QObject::connect(e.porteAval, SIGNAL(porteOuverte()), this, SLOT(feu_aval()));
+
     feu_amont();
     feu_aval();
 }
@@ -82,6 +87,7 @@ void MainWindow::rendu_ferme_vanne2()
 
 void MainWindow::feu_aval()
 {
+    qDebug() << " dans feu aval";
     if(e.signalAval->etat == 0)
     {
         ui->feux2_3->setStyleSheet("background-color:rgb(239, 41, 41)");
@@ -97,6 +103,7 @@ void MainWindow::feu_aval()
 }
 void MainWindow::feu_amont()
 {
+    qDebug() << " dans feu amont";
     if(e.signalAmont->etat == 0)
     {
         ui->feux2_2->setStyleSheet("background-color:rgb(239, 41, 41)");
@@ -164,7 +171,7 @@ void MainWindow::on_Button_Amont_Aval_3_clicked()
     e.amontVersAval1();
 
     ui->stackedWidget->setCurrentIndex(1);
-    ui->label_3->setText("Lorsque vous êtes dans le sas:");
+    ui->label_3->setText("Lorsque vous êtes dans le sas :");
     ui->Button_Amont_Aval_4->setText("Fermer la porte");
     for(int i=0; i< 34; i++)
     {
@@ -179,7 +186,7 @@ void MainWindow::on_Button_Aval_Amont_3_clicked()
     e.avalVersAmont1();
 
     ui->stackedWidget->setCurrentIndex(1);
-    ui->label_3->setText("Lorsque vous êtes sortit du sas:");
+    ui->label_3->setText("Lorsque vous êtes sorti du sas :");
     ui->Button_Amont_Aval_4->setText("Fermer la porte");
     for(int i=0; i< 34; i++)
     {
@@ -208,7 +215,7 @@ void MainWindow::on_Button_Amont_Aval_4_clicked()
         {
             ui->progressBar_2->setValue(i);
         }
-        ui->label_3->setText("Lorsque vous êtes sortit du sas:");
+        ui->label_3->setText("Lorsque vous êtes sorti du sas:");
         ui->Button_Amont_Aval_4->setText("J'ai fini");
     }
     else
