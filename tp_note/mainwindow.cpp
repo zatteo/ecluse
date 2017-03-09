@@ -59,7 +59,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(e.porteAmont, SIGNAL(porteFermee()), this, SLOT(final_enable()));
     QObject::connect(e.porteAval, SIGNAL(porteFermee()), this, SLOT(final_enable()));
 
-
     // gestion des incidents
     QObject::connect(e.porteAmont, SIGNAL(alarmePorte()), this, SLOT(incident()));
     QObject::connect(e.porteAval, SIGNAL(alarmePorte()), this, SLOT(incident()));
@@ -140,16 +139,19 @@ void MainWindow::rendu_ferme_vanne2()
 
 void MainWindow::feu_aval()
 {
+    qDebug() << "feu aval";
     if(!e.admin) // on actualise pas le feu si on est en administration (controle total)
     {
         if(e.signalAval->etat == 0)
         {
+            qDebug() << "rouige";
             ui->feux2_3->setStyleSheet("background-color:rgb(239, 41, 41)");
             ui->feux2->setStyleSheet("background-color:rgb(239, 41, 41)");
             ui->feux4->setStyleSheet("background-color:rgb(239, 41, 41)");
         }
         else
         {
+            qDebug() << "vert";
             ui->feux2_3->setStyleSheet("background-color: rgb(78, 154, 6);");
             ui->feux2->setStyleSheet("background-color: rgb(78, 154, 6);");
             ui->feux4->setStyleSheet("background-color: rgb(78, 154, 6);");
@@ -158,16 +160,19 @@ void MainWindow::feu_aval()
 }
 void MainWindow::feu_amont()
 {
+    qDebug() << "feu amont";
     if(!e.admin) // on actualise pas le feu si on est en administration (controle total)
     {
         if(e.signalAmont->etat == 0)
         {
+            qDebug() << "rouge";
             ui->feux2_2->setStyleSheet("background-color:rgb(239, 41, 41)");
             ui->feux1->setStyleSheet("background-color:rgb(239, 41, 41)");
             ui->feux3->setStyleSheet("background-color:rgb(239, 41, 41)");
         }
         else
         {
+            qDebug() << "vert";
             ui->feux2_2->setStyleSheet("background-color: rgb(78, 154, 6);");
             ui->feux1->setStyleSheet("background-color: rgb(78, 154, 6);");
             ui->feux3->setStyleSheet("background-color: rgb(78, 154, 6);");
@@ -460,28 +465,28 @@ void MainWindow::on_Button_quit_clicked()
 //changement feu amont
 void MainWindow::on_radioButton_7_clicked()
 {
-    e.signalAmont->etat= 0;
+    e.signalAmont->rouge();
     feu_amont();
 }
 
 //changement feu amont
 void MainWindow::on_radioButton_8_clicked()
 {
-    e.signalAmont->etat= 1;
+    e.signalAmont->vert();
     feu_amont();
 }
 
 //changement feu aval
 void MainWindow::on_radioButton_13_clicked()
 {
-    e.signalAval->etat= 0;
+    e.signalAval->rouge();
     feu_aval();
 }
 
 //changement feu aval
 void MainWindow::on_radioButton_14_clicked()
 {
-    e.signalAval->etat= 1;
+    e.signalAval->vert();
     feu_aval();
 }
 

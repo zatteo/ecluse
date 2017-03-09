@@ -137,7 +137,7 @@ void Ecluse::avalVersAmont1()
 
     niveauEcluse = 1;
 
-    if(niveauEau == 1)
+    if(niveauEau == 2)
     {
         qDebug() << "Niveau d'eau à 1";
         connect(vanneAval, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAval()));
