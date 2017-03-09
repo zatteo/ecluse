@@ -124,6 +124,7 @@ void MainWindow::baisse_eau()
         ui->eau2->move( ui->eau2->pos().x() , (ui->eau2->pos().y() + 5 ));
         ui->eau3->move( ui->eau3->pos().x() , (ui->eau3->pos().y() + 5 ));
         QApplication::processEvents();
+        e.niveauEau=0;
 }
 
 void MainWindow::baisseporte1()
@@ -146,8 +147,8 @@ void MainWindow::monte_eau()
         ui->eau1->move( ui->eau1->pos().x() , (ui->eau1->pos().y() - 5 ));
         ui->eau2->move( ui->eau2->pos().x() , (ui->eau2->pos().y() - 5 ));
         ui->eau3->move( ui->eau3->pos().x() , (ui->eau3->pos().y() - 5 ));
-
         QApplication::processEvents();
+        e.niveauEau=2;
 }
 
 void MainWindow::monteporte1()
@@ -365,7 +366,7 @@ void MainWindow::aligne_eau()
     else if(e.niveauEau == 1 && e.vanneAmont->etat == 0 && e.vanneAval->etat == 1) {l = 5; e.niveauEau=0;}
     else if(e.niveauEau == 0 && e.vanneAmont->etat == 1 && e.vanneAval->etat == 1) {k = 5; e.niveauEau=1;}
     else if(e.niveauEau == 2 && e.vanneAmont->etat == 1 && e.vanneAval->etat == 1) {l = 5; e.niveauEau=1;}
-    for(int i=0; i<k; i++)
+    for(int i=1; i<k; i++)
     {
         ui->eau1->move( ui->eau1->pos().x() , (ui->eau1->pos().y() - 5 ));
         ui->eau2->move( ui->eau2->pos().x() , (ui->eau2->pos().y() - 5 ));
@@ -373,7 +374,7 @@ void MainWindow::aligne_eau()
         QApplication::processEvents();
         sleep(0.5);
     }
-    for(int i=0; i<l; i++)
+    for(int i=1; i<l; i++)
     {
         ui->eau1->move( ui->eau1->pos().x() , (ui->eau1->pos().y() + 5 ));
         ui->eau2->move( ui->eau2->pos().x() , (ui->eau2->pos().y() + 5 ));
@@ -386,6 +387,10 @@ void MainWindow::aligne_eau()
 
 void MainWindow::on_radioButton_clicked()
 {
+    ui->radioButton_5->setEnabled(false);
+    ui->radioButton_6->setEnabled(false);
+    ui->radioButton_11->setEnabled(false);
+    ui->radioButton_12->setEnabled(false);
     rendu_ouvre_vanne1();
     aligne_eau();
 }
@@ -394,16 +399,30 @@ void MainWindow::on_radioButton_2_clicked()
 {
     rendu_ferme_vanne1();
     aligne_eau();
+    if(e.vanneAval->etat == 0)
+    {
+        ui->radioButton_5->setEnabled(true);
+        ui->radioButton_6->setEnabled(true);
+    }
 }
 
 void MainWindow::on_radioButton_9_clicked()
 {
+    ui->radioButton_5->setEnabled(false);
+    ui->radioButton_6->setEnabled(false);
+    ui->radioButton_11->setEnabled(false);
+    ui->radioButton_12->setEnabled(false);
     rendu_ouvre_vanne2();
     aligne_eau();
 }
 
 void MainWindow::on_radioButton_10_clicked()
-{
+{   
     rendu_ferme_vanne2();
     aligne_eau();
+    if(e.vanneAmont->etat == 0)
+    {
+        ui->radioButton_11->setEnabled(true);
+        ui->radioButton_12->setEnabled(true);
+    }
 }
