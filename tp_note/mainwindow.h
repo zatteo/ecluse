@@ -1,3 +1,5 @@
+// SUTTER Nicolas et POIZAT Théo, L3 CMI ISR
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -21,6 +23,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void authentification();
+    // fenêtre du générateur de pannes
     QWidget failgen;
     QGroupBox *groupbox = new QGroupBox("F41LG3N 1.0", &failgen);
     QCheckBox *vanneAmontCK = new QCheckBox("Vanne Amont");
@@ -37,7 +40,7 @@ private slots:
     void on_Button_Aval_Amont_3_clicked();
     void on_Button_Amont_Aval_4_clicked();
 
-    void random();
+    void random(); // fonction de génération d'une panne
 
     void on_urgence();
     void mdp();
@@ -50,14 +53,15 @@ private slots:
     void rendu_ouvre_vanne2();
     void rendu_ferme_vanne1();
     void rendu_ferme_vanne2();
-    void monte_eau();
-    void baisse_eau();
+    void monte_eau(); // augmente visuellement le niveau de l'eau
+    void baisse_eau(); // diminue visuellement le niveau de l'eau
 
-    void feu_aval();
-    void feu_amont();
-    void feu_aval_admin();
-    void feu_amont_admin();
+    void feu_aval(); // mise à jour visuelle du feu aval en fonction de son état
+    void feu_amont(); // mise à jour visuelle du feu amont en fonction de son état
+    void feu_aval_admin(); // idem en mode administrateur
+    void feu_amont_admin(); // idem en mode administrateur
 
+    // mouvement des portes
     void baisseporte1();
     void baisseporte2();
     void monteporte1();
@@ -81,8 +85,6 @@ private slots:
 
     void on_radioButton_10_clicked();
 
-    void incident();
-
     void on_radioButton_5_clicked();
 
     void on_radioButton_6_clicked();
@@ -90,6 +92,8 @@ private slots:
     void on_radioButton_11_clicked();
 
     void on_radioButton_12_clicked();
+
+    void incident(); // gestion d'une panne
 
     void enable();
     void final_enable();
@@ -105,9 +109,10 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Ecluse e;
-    int code[4];
-    int pos=0;
-    int previous=0;
+
+    int code[4]; // mot de passe stocké dans la fenêtre
+    int pos = 0;
+    int previous = 0;
 };
 
 #endif // MAINWINDOW_H

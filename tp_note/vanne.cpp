@@ -1,9 +1,12 @@
+// SUTTER Nicolas et POIZAT Théo, L3 CMI ISR
+
 #include "vanne.h"
 
 void Vanne::run(){}
 
 Vanne::Vanne(int id1, QObject *parent) : QThread(parent){id = id1;}
 
+// système similaire à l'ouverture du porte
 void Vanne::ouverture()
 {
     qDebug() << "Ouverture de la vanne" << getID();

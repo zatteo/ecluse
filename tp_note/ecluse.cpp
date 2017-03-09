@@ -1,3 +1,5 @@
+// SUTTER Nicolas et POIZAT Théo, L3 CMI ISR
+
 #include <QDebug>
 #include "ecluse.h"
 
@@ -22,48 +24,6 @@ Ecluse::Ecluse(QObject *parent) : QObject(parent)
     signalAval->start();
 }
 
-Vanne * Ecluse::getVanne(int i)
-{
-    if(i == AMONT)
-    {
-        return vanneAmont;
-    }
-    else if(i == AVAL)
-    {
-        return vanneAval;
-    }
-
-    return NULL;
-}
-
-Porte * Ecluse::getPorte(int i)
-{
-    if(i == AMONT)
-    {
-        return porteAmont;
-    }
-    else if(i == AVAL)
-    {
-        return porteAval;
-    }
-
-    return NULL;
-}
-
-SignalLumineux * Ecluse::getSignalLumineux(int i)
-{
-    if(i == AMONT)
-    {
-        return signalAmont;
-    }
-    else if(i == AVAL)
-    {
-        return signalAval;
-    }
-
-    return NULL;
-}
-
 void Ecluse::ouvertureVanneAval()
 {
     vanneAval->ouverture();
@@ -86,7 +46,7 @@ void Ecluse::fermetureVanneAmont()
 
 void Ecluse::ouverturePorteAval()
 {
-    signalAval->vert();
+    signalAval->vert(); // ouverture d'une porte => le feu passera au vert (la mise à jour du feu sera effectué en temps voulu)
     porteAval->ouverture();
 }
 
@@ -98,7 +58,7 @@ void Ecluse::ouverturePorteAmont()
 
 void Ecluse::fermeturePorteAval()
 {
-    signalAval->rouge();
+    signalAval->rouge(); // fermeture d'une porte => le feu passera au rouge
     porteAval->fermeture();
 }
 
@@ -131,6 +91,7 @@ void Ecluse::enleverAlarme()
     porteAval->enleverAlarme();
 }
 
+// 1ère étape du mode automatique, sens aval vers amont
 void Ecluse::avalVersAmont1()
 {
     qDebug() << "Aval vers Amont 1";
@@ -139,6 +100,7 @@ void Ecluse::avalVersAmont1()
 
     if(niveauEau == 2)
     {
+        // connexion des signaux pour un déroulement cohérent
         qDebug() << "Niveau d'eau à 1";
         connect(vanneAval, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAval()));
         connect(vanneAval, SIGNAL(vanneFermee()), this, SLOT(ouverturePorteAval()));
@@ -153,6 +115,7 @@ void Ecluse::avalVersAmont1()
     }
 }
 
+// 2ème étape
 void Ecluse::avalVersAmont2()
 {
     disconnect(vanneAval, SIGNAL(vanneOuverte()), this, SLOT(fermetureVanneAval()));
@@ -164,6 +127,7 @@ void Ecluse::avalVersAmont2()
     niveauEcluse = 2;
 }
 
+// 2étape intermédiaire afin d'attendre le clic sur le bouton
 void Ecluse::avalVersAmont2bis()
 {
     qDebug() << "Aval vers Amont 2";
@@ -175,6 +139,7 @@ void Ecluse::avalVersAmont2bis()
     fermeturePorteAval();
 }
 
+// 3ème étape
 void Ecluse::avalVersAmont3()
 {
     disconnect(porteAval, SIGNAL(porteFermee()), this, SLOT(ouvertureVanneAmont()));
@@ -187,6 +152,7 @@ void Ecluse::avalVersAmont3()
     niveauEcluse = 3;
 }
 
+// 3ème étape intermediaire
 void Ecluse::avalVersAmont3bis()
 {
     qDebug() << "Aval vers Amont 3";
@@ -195,6 +161,7 @@ void Ecluse::avalVersAmont3bis()
     fermeturePorteAmont();
 }
 
+// 1ère étape du mode automatique, sens amont vers aval, similaire à l'autre sens
 void Ecluse::amontVersAval1()
 {
     qDebug() << "Amont vers Aval 1";
@@ -263,4 +230,3 @@ void Ecluse::fin()
     // TODO reset de tout
     niveauEcluse = 0;
 }
-

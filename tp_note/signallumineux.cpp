@@ -1,3 +1,5 @@
+// SUTTER Nicolas et POIZAT Théo, L3 CMI ISR
+
 #include "signallumineux.h"
 
 void SignalLumineux::run(){}

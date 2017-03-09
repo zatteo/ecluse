@@ -1,3 +1,5 @@
+// SUTTER Nicolas et POIZAT Théo, L3 CMI ISR
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <unistd.h>
@@ -9,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     QObject::connect(ui->Button_urgence1, SIGNAL(clicked(bool)), this, SLOT(on_urgence()));
     QObject::connect(ui->Button_urgence2, SIGNAL(clicked(bool)), this, SLOT(on_urgence()));
     QObject::connect(ui->Button_urgence3, SIGNAL(clicked(bool)), this, SLOT(on_urgence()));
@@ -68,6 +71,7 @@ MainWindow::MainWindow(QWidget *parent) :
     feu_amont();
     feu_aval();
 
+    // paramétrage et affichage de la seconde fenêtre
     failgen.resize(150, 200);
 
     vbox->addWidget(vanneAmontCK);
@@ -129,6 +133,7 @@ void MainWindow::random()
     }
 }
 
+// affichage de l'ouverture/fermeture d'une vanne
 void MainWindow::rendu_ouvre_vanne1()
 {
     ui->vanne1->setStyleSheet("background-color:rgb(114, 159, 207);");
@@ -162,13 +167,13 @@ void MainWindow::feu_aval()
 {
     if(!e.admin) // on actualise pas le feu si on est en administration (controle total)
     {
-        if(e.signalAval->etat == 0)
+        if(e.signalAval->etat == 0) // rouge
         {
             ui->feux2_3->setStyleSheet("background-color:rgb(239, 41, 41);");
             ui->feux2->setStyleSheet("background-color:rgb(239, 41, 41);");
             ui->feux4->setStyleSheet("background-color:rgb(239, 41, 41);");
         }
-        else
+        else // vert
         {
             ui->feux2_3->setStyleSheet("background-color: rgb(78, 154, 6);");
             ui->feux2->setStyleSheet("background-color: rgb(78, 154, 6);");
@@ -293,6 +298,7 @@ void MainWindow::final_enable()
     ui->Button_auth1->setDisabled(false);
 }
 
+// bouton amont vers aval
 void MainWindow::on_Button_Amont_Aval_3_clicked()
 {
     ui->Button_Amont_Aval_3->setDisabled(true);
@@ -314,8 +320,9 @@ void MainWindow::on_Button_Amont_Aval_3_clicked()
     }
 }
 
+// bouton aval vers amont
 void MainWindow::on_Button_Aval_Amont_3_clicked()
-{   
+{
     e.sens = 1;
 
     e.avalVersAmont1();
@@ -331,6 +338,7 @@ void MainWindow::on_Button_Aval_Amont_3_clicked()
     }
 }
 
+// bouton de la 2ème et 3ème étape (il est dynamique)
 void MainWindow::on_Button_Amont_Aval_4_clicked()
 {
     ui->Button_Amont_Aval_4->setDisabled(true);
@@ -341,7 +349,7 @@ void MainWindow::on_Button_Amont_Aval_4_clicked()
         // partie 2
         if(e.niveauEcluse == 2)
         {
-            if(e.sens == 1)
+            if(e.sens == 1) // en fonction du sens
             {
                 e.avalVersAmont2bis();
             }
@@ -365,6 +373,7 @@ void MainWindow::on_Button_Amont_Aval_4_clicked()
         ui->Button_auth2->setDisabled(true);
         ui->Button_Aval_Amont_3->setDisabled(true);
         ui->Button_auth1->setDisabled(true);
+
         // partie 3
         if(e.niveauEcluse == 3)
         {
@@ -378,28 +387,29 @@ void MainWindow::on_Button_Amont_Aval_4_clicked()
             }
         }
 
-        ui->stackedWidget->setCurrentIndex(0);
+        ui->stackedWidget->setCurrentIndex(0); // retour à la vue d'accueil
     }
 }
 
-//arret d'urgence
+// arrêt d'urgence
 void MainWindow::on_urgence()
 {
     e.urgence();
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(3); // affichage de la vue d'urgence
 }
 
 void MainWindow::incident()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(3); // affichage de la vue d'urgence
 }
 
 
-//connection
+// connexion
 void MainWindow::mdp()
 {
     QPushButton * button = qobject_cast<QPushButton*>(sender());
     QString text = button->text();
+
     if(text != "OK" && text != "<--" && pos<5)
     {
        code[pos] = text.toInt();
@@ -418,7 +428,7 @@ void MainWindow::mdp()
     }
     if(text == "OK")
     {
-        //si le mot de passe est le bon
+        // si le mot de passe est le bon
         if(pos == 4 && code[0] == 1 && code[1] == 2 && code[2] == 3 && code[3]== 1)
         {
             ui->Champ_mdp->clear();
@@ -479,7 +489,7 @@ void MainWindow::mdp()
     }
 }
 
-//click sur le bouton pour se connecter
+// clic sur le bouton pour se connecter
 void MainWindow::auth()
 {
     QPushButton * button = qobject_cast<QPushButton*>(sender());
@@ -493,7 +503,7 @@ void MainWindow::auth()
     ui->stackedWidget->setCurrentIndex(2);
 }
 
-//annulation ecran connection
+// annulation écran connexion
 void MainWindow::on_Button_retour_clicked()
 {
     for(int i=0; i<pos; i++)
@@ -503,42 +513,42 @@ void MainWindow::on_Button_retour_clicked()
     ui->stackedWidget->setCurrentIndex(previous);
 }
 
-//deconnexion du panneau manuel
+// déconnexion du panneau manuel
 void MainWindow::on_Button_quit_clicked()
 {
     e.admin = false;
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-//changement feu amont
+// changement feu amont
 void MainWindow::on_radioButton_7_clicked()
 {
     e.signalAmont->rouge();
     feu_amont_admin();
 }
 
-//changement feu amont
+// changement feu amont
 void MainWindow::on_radioButton_8_clicked()
 {
     e.signalAmont->vert();
     feu_amont_admin();
 }
 
-//changement feu aval
+// changement feu aval
 void MainWindow::on_radioButton_13_clicked()
 {
     e.signalAval->rouge();
     feu_aval_admin();
 }
 
-//changement feu aval
+// changement feu aval
 void MainWindow::on_radioButton_14_clicked()
 {
     e.signalAval->vert();
     feu_aval_admin();
 }
 
-//aligne le niveau de l'eau en fonctione des vannes
+// aligne le niveau de l'eau en fonctione des vannes
 void MainWindow::aligne_eau()
 {
     int k=0, l=0;
@@ -567,7 +577,7 @@ void MainWindow::aligne_eau()
     }
 }
 
-//ouverture manuelle vanne amont
+// ouverture manuelle vanne amont
 void MainWindow::on_radioButton_clicked()
 {
     ui->radioButton_5->setEnabled(false);
@@ -578,7 +588,7 @@ void MainWindow::on_radioButton_clicked()
     aligne_eau();
 }
 
-//fermeture manuelle vanne amont
+// fermeture manuelle vanne amont
 void MainWindow::on_radioButton_2_clicked()
 {
     rendu_ferme_vanne1();
@@ -590,7 +600,7 @@ void MainWindow::on_radioButton_2_clicked()
     }
 }
 
-//ouverture vanne manuelle aval
+// ouverture vanne manuelle aval
 void MainWindow::on_radioButton_9_clicked()
 {
     ui->radioButton_5->setEnabled(false);
@@ -601,7 +611,7 @@ void MainWindow::on_radioButton_9_clicked()
     aligne_eau();
 }
 
-//fermeture manuelle vanne aval
+// fermeture manuelle vanne aval
 void MainWindow::on_radioButton_10_clicked()
 {
     rendu_ferme_vanne2();
@@ -613,7 +623,7 @@ void MainWindow::on_radioButton_10_clicked()
     }
 }
 
-//ouverture manuelle porte amont
+// ouverture manuelle porte amont
 void MainWindow::on_radioButton_5_clicked()
 {
     ui->radioButton->setEnabled(false);
@@ -625,7 +635,7 @@ void MainWindow::on_radioButton_5_clicked()
     e.ouverturePorteAmont();
 }
 
-//fermeture manuelle porte amont
+// fermeture manuelle porte amont
 void MainWindow::on_radioButton_6_clicked()
 {
     e.fermeturePorteAmont();
@@ -635,7 +645,7 @@ void MainWindow::on_radioButton_6_clicked()
     ui->radioButton_10->setEnabled(true);
 }
 
-//ouverture manuelle porte aval
+// ouverture manuelle porte aval
 void MainWindow::on_radioButton_11_clicked()
 {
     ui->radioButton->setEnabled(false);
@@ -647,7 +657,7 @@ void MainWindow::on_radioButton_11_clicked()
     e.ouverturePorteAval();
 }
 
-//fermeture manuelle porte aval
+// fermeture manuelle porte aval
 void MainWindow::on_radioButton_12_clicked()
 {
     e.fermeturePorteAval();

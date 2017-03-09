@@ -1,3 +1,5 @@
+// SUTTER Nicolas et POIZAT Théo, L3 CMI ISR
+
 #include "mainwindow.h"
 #include <QApplication>
 

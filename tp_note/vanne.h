@@ -1,3 +1,5 @@
+// SUTTER Nicolas et POIZAT Théo, L3 CMI ISR
+
 #ifndef VANNE_H
 #define VANNE_H
 
@@ -8,24 +10,26 @@
 #define AMONT 0
 #define AVAL 1
 
+/* représente une vanne d'une éclise, est un QThread à par entière*/
 class Vanne : public QThread
 {
     Q_OBJECT
 
 public:
     explicit Vanne(int, QObject *parent = 0);
-    int etat=0; // 1 = ouvert, 0 = fermé
-    bool alarme= false; // 1 = alarme, 0 = pas d'alarme
+
+    int etat = 0; // 1 = ouvert, 0 = fermé
+    bool alarme = false; // 1 = alarme, 0 = pas d'alarme
 
 
 protected:
     void run();
 
 signals:
-    void vanneOuverte();
-    void vanneFermee();
+    void vanneOuverte(); // indique qu'une vanne vient d'être ouverte
+    void vanneFermee(); // indique qu'une vanne vient d'être fermée
     void alarmeVanne();
-    void signalVannePlusUn();
+    void signalVannePlusUn(); // indique implicitement l'écoulement de l'eau
     void signalVanneOuverte();
     void signalVanneFermee();
 
@@ -40,7 +44,7 @@ public slots:
     void vannePlusUn();
 
 private:
-    int ouvertureVanne = 0;
+    int ouvertureVanne = 0; // degré d'écoulement de l'eau
 
     QTimer timer;
     int id;

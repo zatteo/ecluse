@@ -1,3 +1,5 @@
+// SUTTER Nicolas et POIZAT Théo, L3 CMI ISR
+
 #ifndef PORTE_H
 #define PORTE_H
 
@@ -6,12 +8,14 @@
 #include <QDebug>
 #include <QSignalMapper>
 
+/* représente une porte d'une écluse, est un QThread à par entière*/
 class Porte : public QThread
 {
     Q_OBJECT
 
 public:
     explicit Porte(int, QObject *parent = 0);
+
     int etat = 2; // 4 = ouvert, 3 = en ouverture, 2 = fermé, 1 = en fermeture, 0 = arrêtée
     bool alarme = 0; // 1 = alarme, 0 = pas d'alarme
 
@@ -19,11 +23,11 @@ protected:
     void run();
 
 signals:
-    int porteOuverte();
-    int porteFermee();
+    int porteOuverte(); // indique que la porte vient d'être ouverte
+    int porteFermee(); // indique que la porte vient d'être fermée
     void alarmePorte();
-    void signalPorteMoinsUn();
-    void signalPortePlusUn();
+    void signalPorteMoinsUn(); // indique que la porte est en train d'être fermée
+    void signalPortePlusUn(); // indique que la porte est en train d'être ouverte
 
 
 public slots:
@@ -41,7 +45,7 @@ public slots:
 private:
     QTimer timer;
 
-    int position;
+    int position; // degré d'ouverture de la porte
     int id;
 };
 
