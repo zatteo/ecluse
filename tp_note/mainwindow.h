@@ -64,6 +64,8 @@ private slots:
 
     void on_radioButton_10_clicked();
 
+    void incident();
+
 private:
     Ui::MainWindow *ui;
     Ecluse e;

@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Button_urgence3, SIGNAL(clicked(bool)), this, SLOT(on_urgence()));
     QObject::connect(ui->Button_urgence4, SIGNAL(clicked(bool)), this, SLOT(on_urgence()));
 
+    // authentification
     QObject::connect(ui->Button_0, SIGNAL(clicked(bool)), this, SLOT(mdp()));
     QObject::connect(ui->Button_1, SIGNAL(clicked(bool)), this, SLOT(mdp()));
     QObject::connect(ui->Button_2, SIGNAL(clicked(bool)), this, SLOT(mdp()));
@@ -29,23 +30,33 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->Button_auth2, SIGNAL(clicked(bool)), this, SLOT(auth()));
     QObject::connect(ui->Button_auth3, SIGNAL(clicked(bool)), this, SLOT(auth()));
 
+    // actualisation du niveau des portes
     QObject::connect(e.porteAmont, SIGNAL(signalPortePlusUn()), this, SLOT(baisseporte1()));
     QObject::connect(e.porteAmont, SIGNAL(signalPorteMoinsUn()), this, SLOT(monteporte1()));
     QObject::connect(e.porteAval, SIGNAL(signalPortePlusUn()), this, SLOT(baisseporte2()));
     QObject::connect(e.porteAval, SIGNAL(signalPorteMoinsUn()), this, SLOT(monteporte2()));
 
+    // actualisation du niveau central de l'eau
     QObject::connect(e.vanneAmont, SIGNAL(signalVannePlusUn()), this, SLOT(monte_eau()));
     QObject::connect(e.vanneAval, SIGNAL(signalVannePlusUn()), this, SLOT(baisse_eau()));
 
+    // actualisation de l'image des vannes
     QObject::connect(e.vanneAmont, SIGNAL(signalVanneFermee()), this, SLOT(rendu_ferme_vanne1()));
     QObject::connect(e.vanneAmont, SIGNAL(signalVanneOuverte()), this, SLOT(rendu_ouvre_vanne1()));
     QObject::connect(e.vanneAval, SIGNAL(signalVanneFermee()), this, SLOT(rendu_ferme_vanne2()));
     QObject::connect(e.vanneAval, SIGNAL(signalVanneOuverte()), this, SLOT(rendu_ouvre_vanne2()));
 
+    // actualisation des feux
     QObject::connect(e.porteAmont, SIGNAL(signalPorteMoinsUn()), this, SLOT(feu_amont()));
     QObject::connect(e.porteAmont, SIGNAL(porteOuverte()), this, SLOT(feu_amont()));
     QObject::connect(e.porteAval, SIGNAL(signalPorteMoinsUn()), this, SLOT(feu_aval()));
     QObject::connect(e.porteAval, SIGNAL(porteOuverte()), this, SLOT(feu_aval()));
+
+    // gestion des incidents
+    QObject::connect(e.porteAmont, SIGNAL(alarmePorte()), this, SLOT(incident()));
+    QObject::connect(e.porteAval, SIGNAL(alarmePorte()), this, SLOT(incident()));
+    QObject::connect(e.vanneAmont, SIGNAL(alarmeVanne()), this, SLOT(incident()));
+    QObject::connect(e.vanneAval, SIGNAL(alarmeVanne()), this, SLOT(incident()));
 
     feu_amont();
     feu_aval();
@@ -87,32 +98,38 @@ void MainWindow::rendu_ferme_vanne2()
 
 void MainWindow::feu_aval()
 {
-    if(e.signalAval->etat == 0)
+    if(!admin) // on actualise pas le feu si on est en administration (controle total)
     {
-        ui->feux2_3->setStyleSheet("background-color:rgb(239, 41, 41)");
-        ui->feux2->setStyleSheet("background-color:rgb(239, 41, 41)");
-        ui->feux4->setStyleSheet("background-color:rgb(239, 41, 41)");
-    }
-    else
-    {
-        ui->feux2_3->setStyleSheet("background-color: rgb(78, 154, 6);");
-        ui->feux2->setStyleSheet("background-color: rgb(78, 154, 6);");
-        ui->feux4->setStyleSheet("background-color: rgb(78, 154, 6);");
+        if(e.signalAval->etat == 0)
+        {
+            ui->feux2_3->setStyleSheet("background-color:rgb(239, 41, 41)");
+            ui->feux2->setStyleSheet("background-color:rgb(239, 41, 41)");
+            ui->feux4->setStyleSheet("background-color:rgb(239, 41, 41)");
+        }
+        else
+        {
+            ui->feux2_3->setStyleSheet("background-color: rgb(78, 154, 6);");
+            ui->feux2->setStyleSheet("background-color: rgb(78, 154, 6);");
+            ui->feux4->setStyleSheet("background-color: rgb(78, 154, 6);");
+        }
     }
 }
 void MainWindow::feu_amont()
 {
-    if(e.signalAmont->etat == 0)
+    if(!admin) // on actualise pas le feu si on est en administration (controle total)
     {
-        ui->feux2_2->setStyleSheet("background-color:rgb(239, 41, 41)");
-        ui->feux1->setStyleSheet("background-color:rgb(239, 41, 41)");
-        ui->feux3->setStyleSheet("background-color:rgb(239, 41, 41)");
-    }
-    else
-    {
-        ui->feux2_2->setStyleSheet("background-color: rgb(78, 154, 6);");
-        ui->feux1->setStyleSheet("background-color: rgb(78, 154, 6);");
-        ui->feux3->setStyleSheet("background-color: rgb(78, 154, 6);");
+        if(e.signalAmont->etat == 0)
+        {
+            ui->feux2_2->setStyleSheet("background-color:rgb(239, 41, 41)");
+            ui->feux1->setStyleSheet("background-color:rgb(239, 41, 41)");
+            ui->feux3->setStyleSheet("background-color:rgb(239, 41, 41)");
+        }
+        else
+        {
+            ui->feux2_2->setStyleSheet("background-color: rgb(78, 154, 6);");
+            ui->feux1->setStyleSheet("background-color: rgb(78, 154, 6);");
+            ui->feux3->setStyleSheet("background-color: rgb(78, 154, 6);");
+        }
     }
 }
 
@@ -239,6 +256,11 @@ void MainWindow::on_Button_Amont_Aval_4_clicked()
 void MainWindow::on_urgence()
 {
     e.urgence();
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+void MainWindow::incident()
+{
     ui->stackedWidget->setCurrentIndex(3);
 }
 
