@@ -166,9 +166,9 @@ void MainWindow::feu_aval()
         if(e.signalAval->etat == 0)
         {
             qDebug() << "rouige";
-            ui->feux2_3->setStyleSheet("background-color:rgb(239, 41, 41)");
-            ui->feux2->setStyleSheet("background-color:rgb(239, 41, 41)");
-            ui->feux4->setStyleSheet("background-color:rgb(239, 41, 41)");
+            ui->feux2_3->setStyleSheet("background-color:rgb(239, 41, 41);");
+            ui->feux2->setStyleSheet("background-color:rgb(239, 41, 41);");
+            ui->feux4->setStyleSheet("background-color:rgb(239, 41, 41);");
         }
         else
         {
@@ -185,9 +185,9 @@ void MainWindow::feu_aval_admin()
     if(e.signalAval->etat == 0)
     {
         qDebug() << "rouige";
-        ui->feux2_3->setStyleSheet("background-color:rgb(239, 41, 41)");
-        ui->feux2->setStyleSheet("background-color:rgb(239, 41, 41)");
-        ui->feux4->setStyleSheet("background-color:rgb(239, 41, 41)");
+        ui->feux2_3->setStyleSheet("background-color:rgb(239, 41, 41);");
+        ui->feux2->setStyleSheet("background-color:rgb(239, 41, 41);");
+        ui->feux4->setStyleSheet("background-color:rgb(239, 41, 41);");
     }
     else
     {
@@ -206,9 +206,9 @@ void MainWindow::feu_amont()
         if(e.signalAmont->etat == 0)
         {
             qDebug() << "rouge";
-            ui->feux2_2->setStyleSheet("background-color:rgb(239, 41, 41)");
-            ui->feux1->setStyleSheet("background-color:rgb(239, 41, 41)");
-            ui->feux3->setStyleSheet("background-color:rgb(239, 41, 41)");
+            ui->feux2_2->setStyleSheet("background-color:rgb(239, 41, 41);");
+            ui->feux1->setStyleSheet("background-color:rgb(239, 41, 41);");
+            ui->feux3->setStyleSheet("background-color:rgb(239, 41, 41);");
         }
         else
         {
@@ -225,9 +225,9 @@ void MainWindow::feu_amont_admin()
     if(e.signalAmont->etat == 0)
     {
         qDebug() << "rouige";
-        ui->feux2_2->setStyleSheet("background-color:rgb(239, 41, 41)");
-        ui->feux1->setStyleSheet("background-color:rgb(239, 41, 41)");
-        ui->feux3->setStyleSheet("background-color:rgb(239, 41, 41)");
+        ui->feux2_2->setStyleSheet("background-color:rgb(239, 41, 41);");
+        ui->feux1->setStyleSheet("background-color:rgb(239, 41, 41);");
+        ui->feux3->setStyleSheet("background-color:rgb(239, 41, 41);");
     }
     else
     {

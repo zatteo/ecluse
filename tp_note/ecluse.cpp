@@ -104,7 +104,7 @@ void Ecluse::fermeturePorteAval()
 
 void Ecluse::fermeturePorteAmont()
 {
-    signalAval->rouge();
+    signalAmont->rouge();
     porteAmont->fermeture();
 }
 
