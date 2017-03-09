@@ -33,6 +33,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(e.porteAmont, SIGNAL(signalPorteMoinsUn()), this, SLOT(monteporte1()));
     QObject::connect(e.porteAval, SIGNAL(signalPortePlusUn()), this, SLOT(baisseporte2()));
     QObject::connect(e.porteAval, SIGNAL(signalPorteMoinsUn()), this, SLOT(monteporte2()));
+
+    feu_amont();
+    feu_aval();
 }
 
 MainWindow::~MainWindow()
@@ -44,6 +47,7 @@ void MainWindow::rendu_ouvre_vanne1()
 {
     ui->vanne1->setStyleSheet("background-color:rgb(114, 159, 207);");
     ui->vanne3->setStyleSheet("background-color:rgb(114, 159, 207);");
+    ui->vanne2_2->setStyleSheet("background-color:rgb(114, 159, 207);");
     e.vanneAmont->etat = 1;
 
 }
@@ -51,19 +55,53 @@ void MainWindow::rendu_ferme_vanne1()
 {
     ui->vanne1->setStyleSheet("background-color:rgb(85, 87, 83);");
     ui->vanne3->setStyleSheet("background-color:rgb(85, 87, 83);");
+    ui->vanne2_2->setStyleSheet("background-color:rgb(85, 87, 83);");
     e.vanneAmont->etat = 0;
 }
 void MainWindow::rendu_ouvre_vanne2()
 {
     ui->vanne4->setStyleSheet("background-color:rgb(114, 159, 207);");
     ui->vanne2->setStyleSheet("background-color:rgb(114, 159, 207);");
+    ui->vanne2_4->setStyleSheet("background-color:rgb(114, 159, 207);");
     e.vanneAval->etat = 1;
 }
 void MainWindow::rendu_ferme_vanne2()
 {
     ui->vanne2->setStyleSheet("background-color:rgb(85, 87, 83);");
     ui->vanne4->setStyleSheet("background-color:rgb(85, 87, 83);");
+    ui->vanne2_4->setStyleSheet("background-color:rgb(85, 87, 83);");
     e.vanneAval->etat = 0;
+}
+
+void MainWindow::feu_aval()
+{
+    if(e.signalAval->etat == 0)
+    {
+        ui->feux2_3->setStyleSheet("background-color:rgb(239, 41, 41)");
+        ui->feux2->setStyleSheet("background-color:rgb(239, 41, 41)");
+        ui->feux4->setStyleSheet("background-color:rgb(239, 41, 41)");
+    }
+    else
+    {
+        ui->feux2_3->setStyleSheet("background-color: rgb(78, 154, 6);");
+        ui->feux2->setStyleSheet("background-color: rgb(78, 154, 6);");
+        ui->feux4->setStyleSheet("background-color: rgb(78, 154, 6);");
+    }
+}
+void MainWindow::feu_amont()
+{
+    if(e.signalAmont->etat == 0)
+    {
+        ui->feux2_2->setStyleSheet("background-color:rgb(239, 41, 41)");
+        ui->feux1->setStyleSheet("background-color:rgb(239, 41, 41)");
+        ui->feux3->setStyleSheet("background-color:rgb(239, 41, 41)");
+    }
+    else
+    {
+        ui->feux2_2->setStyleSheet("background-color: rgb(78, 154, 6);");
+        ui->feux1->setStyleSheet("background-color: rgb(78, 154, 6);");
+        ui->feux3->setStyleSheet("background-color: rgb(78, 154, 6);");
+    }
 }
 
 void MainWindow::baisse_eau()
@@ -228,6 +266,29 @@ void MainWindow::mdp()
                 code[i]= -1;
             pos = 0;
             ui->stackedWidget->setCurrentIndex(4);
+            if(e.vanneAmont->etat == 1) ui->radioButton->setChecked(true);
+            else ui->radioButton_2->setChecked(true);
+            if(e.vanneAval->etat == 1) ui->radioButton_9->setChecked(true);
+            else ui->radioButton_10->setChecked(true);
+            if(e.vanneAmont->alarme) {ui->label_12->show(); ui->pushButton_9->show();}
+            else {ui->label_12->hide(); ui->pushButton_9->hide();}
+            if(e.vanneAval->alarme) {ui->label_20->show(); ui->pushButton_13->show();}
+            else {ui->label_20->hide(); ui->pushButton_13->hide();}
+
+            if(e.porteAmont->etat == 4) ui->radioButton_5->setChecked(true);
+            else ui->radioButton_6->setChecked(true);
+            if(e.porteAval->etat == 4) ui->radioButton_11->setChecked(true);
+            else ui->radioButton_12->setChecked(true);
+            if(e.porteAmont->alarme) {ui->label_16->show(); ui->pushButton_11->show();}
+            else {ui->label_16->hide(); ui->pushButton_11->hide();}
+            if(e.porteAval->alarme) {ui->label_22->show(); ui->pushButton_14->show();}
+            else {ui->label_22->hide(); ui->pushButton_14->hide();}
+
+            if(e.signalAmont->etat == 0) ui->radioButton_7->setChecked(true);
+            else ui->radioButton_8->setChecked(true);
+            if(e.signalAval->etat == 0) ui->radioButton_13->setChecked(true);
+            else ui->radioButton_14->setChecked(true);
+
         }
         else
         {
@@ -264,4 +325,48 @@ void MainWindow::on_Button_retour_clicked()
 void MainWindow::on_Button_quit_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_radioButton_7_clicked()
+{
+    e.signalAmont->etat= 0;
+    feu_amont();
+}
+
+void MainWindow::on_radioButton_8_clicked()
+{
+    e.signalAmont->etat= 1;
+    feu_amont();
+}
+
+void MainWindow::on_radioButton_13_clicked()
+{
+    e.signalAval->etat= 0;
+    feu_aval();
+}
+
+void MainWindow::on_radioButton_14_clicked()
+{
+    e.signalAval->etat= 1;
+    feu_aval();
+}
+
+void MainWindow::on_radioButton_clicked()
+{
+    rendu_ouvre_vanne1();
+}
+
+void MainWindow::on_radioButton_2_clicked()
+{
+    rendu_ferme_vanne1();
+}
+
+void MainWindow::on_radioButton_9_clicked()
+{
+    rendu_ouvre_vanne2();
+}
+
+void MainWindow::on_radioButton_10_clicked()
+{
+    rendu_ferme_vanne2();
 }

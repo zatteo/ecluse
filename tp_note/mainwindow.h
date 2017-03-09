@@ -38,10 +38,29 @@ private slots:
     void monte_eau();
     void baisse_eau();
 
+    void feu_aval();
+    void feu_amont();
+
     void baisseporte1();
     void baisseporte2();
     void monteporte1();
     void monteporte2();
+
+    void on_radioButton_7_clicked();
+
+    void on_radioButton_8_clicked();
+
+    void on_radioButton_13_clicked();
+
+    void on_radioButton_14_clicked();
+
+    void on_radioButton_clicked();
+
+    void on_radioButton_2_clicked();
+
+    void on_radioButton_9_clicked();
+
+    void on_radioButton_10_clicked();
 
 private:
     Ui::MainWindow *ui;
