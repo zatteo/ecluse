@@ -7,7 +7,6 @@ Porte::Porte(int id1, QObject *parent) : QThread(parent)
     id = id1;
     etat = 2;
     position = 0; // 0 = fermée .. 10 = ouverte
-    panne = false;
     alarme = false;
 }
 
@@ -114,28 +113,6 @@ void Porte::enleverAlarme()
     qDebug() << "Alarme OFF sur la porte" << getID();
 
     alarme = false;
-}
-
-void Porte::mettrePanne()
-{
-    qDebug() << "Panne ON sur la porte" << getID();
-
-    panne = true;
-
-    arret();
-    mettreAlarme(1);
-}
-
-void Porte::enleverPanne()
-{
-    qDebug() << "Panne OFF sur la porte" << getID();
-
-    panne = false;
-}
-
-bool Porte::estPanne()
-{
-    return panne;
 }
 
 bool Porte::estAlarme()

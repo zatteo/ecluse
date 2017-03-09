@@ -14,7 +14,9 @@ class Vanne : public QThread
 
 public:
     explicit Vanne(int, QObject *parent = 0);
-    int etat; // 1 = ouvert, 0 = fermé
+    int etat=0; // 1 = ouvert, 0 = fermé
+    bool alarme= false; // 1 = alarme, 0 = pas d'alarme
+
 
 protected:
     void run();
@@ -33,17 +35,11 @@ public slots:
     void urgence();
     void mettreAlarme(int); // 1 = panne, 0 = urgence
     void enleverAlarme();
-    void mettrePanne();
-    void enleverPanne();
-    bool estPanne();
     bool estAlarme();
     int getID();
-//    void vanneMoinsUn();
     void vannePlusUn();
 
 private:
-    bool panne; // 1 = en panne, 0 = en marche
-    bool alarme; // 1 = alarme, 0 = pas d'alarme
     int ouvertureVanne = 0;
 
     QTimer timer;
