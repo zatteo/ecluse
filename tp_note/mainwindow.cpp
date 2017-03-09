@@ -54,6 +54,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(e.porteAval, SIGNAL(signalPorteMoinsUn()), this, SLOT(feu_aval()));
     QObject::connect(e.porteAval, SIGNAL(porteOuverte()), this, SLOT(feu_aval()));
 
+    QObject::connect(e.porteAmont, SIGNAL(porteOuverte()), this, SLOT(enable()));
+    QObject::connect(e.porteAval, SIGNAL(porteOuverte()), this, SLOT(enable()));
+    QObject::connect(e.porteAmont, SIGNAL(porteFermee()), this, SLOT(final_enable()));
+    QObject::connect(e.porteAval, SIGNAL(porteFermee()), this, SLOT(final_enable()));
+
+
     // gestion des incidents
     QObject::connect(e.porteAmont, SIGNAL(alarmePorte()), this, SLOT(incident()));
     QObject::connect(e.porteAval, SIGNAL(alarmePorte()), this, SLOT(incident()));
@@ -221,8 +227,24 @@ void MainWindow::monteporte2()
     QApplication::processEvents();
 }
 
+void MainWindow::enable()
+{
+    ui->Button_Amont_Aval_4->setDisabled(false);
+    ui->Button_auth2->setDisabled(false);
+}
+
+void MainWindow::final_enable()
+{
+    ui->Button_Amont_Aval_3->setDisabled(false);
+    ui->Button_Aval_Amont_3->setDisabled(false);
+    ui->Button_auth1->setDisabled(false);
+}
+
 void MainWindow::on_Button_Amont_Aval_3_clicked()
 {
+    ui->Button_Amont_Aval_3->setDisabled(true);
+    ui->Button_Aval_Amont_3->setDisabled(true);
+    ui->Button_auth1->setDisabled(true);
     e.sens = -1;
 
     e.amontVersAval1();
@@ -230,6 +252,9 @@ void MainWindow::on_Button_Amont_Aval_3_clicked()
     ui->stackedWidget->setCurrentIndex(1);
     ui->label_3->setText("Lorsque vous êtes dans le sas :");
     ui->Button_Amont_Aval_4->setText("Fermer la porte");
+    ui->Button_Amont_Aval_4->setDisabled(true);
+    ui->Button_auth2->setDisabled(true);
+
     for(int i=0; i< 34; i++)
     {
         ui->progressBar_2->setValue(i);
@@ -237,7 +262,7 @@ void MainWindow::on_Button_Amont_Aval_3_clicked()
 }
 
 void MainWindow::on_Button_Aval_Amont_3_clicked()
-{
+{   
     e.sens = 1;
 
     e.avalVersAmont1();
@@ -245,6 +270,8 @@ void MainWindow::on_Button_Aval_Amont_3_clicked()
     ui->stackedWidget->setCurrentIndex(1);
     ui->label_3->setText("Lorsque vous êtes sorti du sas :");
     ui->Button_Amont_Aval_4->setText("Fermer la porte");
+    ui->Button_Amont_Aval_4->setDisabled(true);
+    ui->Button_auth2->setDisabled(true);
     for(int i=0; i< 34; i++)
     {
      ui->progressBar_2->setValue(i);
@@ -253,6 +280,9 @@ void MainWindow::on_Button_Aval_Amont_3_clicked()
 
 void MainWindow::on_Button_Amont_Aval_4_clicked()
 {
+    ui->Button_Amont_Aval_4->setDisabled(true);
+    ui->Button_Amont_Aval_3->setDisabled(true);
+    ui->Button_auth2->setDisabled(true);
     if(ui->progressBar_2->value()  < 65)
     {
         // partie 2
@@ -277,6 +307,11 @@ void MainWindow::on_Button_Amont_Aval_4_clicked()
     }
     else
     {
+        ui->Button_Amont_Aval_4->setDisabled(true);
+        ui->Button_Amont_Aval_3->setDisabled(true);
+        ui->Button_auth2->setDisabled(true);
+        ui->Button_Aval_Amont_3->setDisabled(true);
+        ui->Button_auth1->setDisabled(true);
         // partie 3
         if(e.niveauEcluse == 3)
         {
@@ -294,6 +329,7 @@ void MainWindow::on_Button_Amont_Aval_4_clicked()
     }
 }
 
+//arret d'urgence
 void MainWindow::on_urgence()
 {
     e.urgence();
@@ -305,6 +341,8 @@ void MainWindow::incident()
     ui->stackedWidget->setCurrentIndex(3);
 }
 
+
+//connection
 void MainWindow::mdp()
 {
     QPushButton * button = qobject_cast<QPushButton*>(sender());
@@ -327,6 +365,7 @@ void MainWindow::mdp()
     }
     if(text == "OK")
     {
+        //si le mot de passe est le bon
         if(pos == 4 && code[0] == 1 && code[1] == 2 && code[2] == 3 && code[3]== 1)
         {
             ui->Champ_mdp->clear();
@@ -387,6 +426,7 @@ void MainWindow::mdp()
     }
 }
 
+//click sur le bouton pour se connecter
 void MainWindow::auth()
 {
     QPushButton * button = qobject_cast<QPushButton*>(sender());
@@ -400,6 +440,7 @@ void MainWindow::auth()
     ui->stackedWidget->setCurrentIndex(2);
 }
 
+//annulation ecran connection
 void MainWindow::on_Button_retour_clicked()
 {
     for(int i=0; i<pos; i++)
@@ -409,36 +450,42 @@ void MainWindow::on_Button_retour_clicked()
     ui->stackedWidget->setCurrentIndex(previous);
 }
 
+//deconnexion du panneau manuel
 void MainWindow::on_Button_quit_clicked()
 {
     e.admin = false;
     ui->stackedWidget->setCurrentIndex(0);
 }
 
+//changement feu amont
 void MainWindow::on_radioButton_7_clicked()
 {
     e.signalAmont->etat= 0;
     feu_amont();
 }
 
+//changement feu amont
 void MainWindow::on_radioButton_8_clicked()
 {
     e.signalAmont->etat= 1;
     feu_amont();
 }
 
+//changement feu aval
 void MainWindow::on_radioButton_13_clicked()
 {
     e.signalAval->etat= 0;
     feu_aval();
 }
 
+//changement feu aval
 void MainWindow::on_radioButton_14_clicked()
 {
     e.signalAval->etat= 1;
     feu_aval();
 }
 
+//aligne le niveau de l'eau en fonctione des vannes
 void MainWindow::aligne_eau()
 {
     int k=0, l=0;
@@ -467,6 +514,7 @@ void MainWindow::aligne_eau()
     }
 }
 
+//ouverture manuelle vanne amont
 void MainWindow::on_radioButton_clicked()
 {
     ui->radioButton_5->setEnabled(false);
@@ -477,6 +525,7 @@ void MainWindow::on_radioButton_clicked()
     aligne_eau();
 }
 
+//fermeture manuelle vanne amont
 void MainWindow::on_radioButton_2_clicked()
 {
     rendu_ferme_vanne1();
@@ -488,6 +537,7 @@ void MainWindow::on_radioButton_2_clicked()
     }
 }
 
+//ouverture vanne manuelle aval
 void MainWindow::on_radioButton_9_clicked()
 {
     ui->radioButton_5->setEnabled(false);
@@ -498,8 +548,9 @@ void MainWindow::on_radioButton_9_clicked()
     aligne_eau();
 }
 
+//fermeture manuelle vanne aval
 void MainWindow::on_radioButton_10_clicked()
-{   
+{
     rendu_ferme_vanne2();
     aligne_eau();
     if(e.vanneAmont->etat == 0)
@@ -509,6 +560,7 @@ void MainWindow::on_radioButton_10_clicked()
     }
 }
 
+//ouverture manuelle porte amont
 void MainWindow::on_radioButton_5_clicked()
 {
     ui->radioButton->setEnabled(false);
@@ -520,6 +572,7 @@ void MainWindow::on_radioButton_5_clicked()
     e.ouverturePorteAmont();
 }
 
+//fermeture manuelle porte amont
 void MainWindow::on_radioButton_6_clicked()
 {
     e.fermeturePorteAmont();
@@ -529,6 +582,7 @@ void MainWindow::on_radioButton_6_clicked()
     ui->radioButton_10->setEnabled(true);
 }
 
+//ouverture manuelle porte aval
 void MainWindow::on_radioButton_11_clicked()
 {
     ui->radioButton->setEnabled(false);
@@ -540,6 +594,7 @@ void MainWindow::on_radioButton_11_clicked()
     e.ouverturePorteAval();
 }
 
+//fermeture manuelle porte aval
 void MainWindow::on_radioButton_12_clicked()
 {
     e.fermeturePorteAval();
@@ -547,4 +602,32 @@ void MainWindow::on_radioButton_12_clicked()
     ui->radioButton_2->setEnabled(true);
     ui->radioButton_9->setEnabled(true);
     ui->radioButton_10->setEnabled(true);
+}
+
+void MainWindow::on_pushButton_9_clicked()
+{
+    e.vanneAmont->enleverAlarme();
+    if(e.vanneAmont->alarme) {ui->label_12->show(); ui->pushButton_9->show();}
+    else {ui->label_12->hide(); ui->pushButton_9->hide();}
+}
+
+void MainWindow::on_pushButton_11_clicked()
+{
+    e.porteAmont->enleverAlarme();
+    if(e.porteAmont->alarme) {ui->label_16->show(); ui->pushButton_11->show();}
+    else {ui->label_16->hide(); ui->pushButton_11->hide();}
+}
+
+void MainWindow::on_pushButton_13_clicked()
+{
+    e.vanneAval->enleverAlarme();
+    if(e.vanneAval->alarme) {ui->label_20->show(); ui->pushButton_13->show();}
+    else {ui->label_20->hide(); ui->pushButton_13->hide();}
+}
+
+void MainWindow::on_pushButton_14_clicked()
+{
+    e.porteAval->enleverAlarme();
+    if(e.porteAval->alarme) {ui->label_22->show(); ui->pushButton_14->show();}
+    else {ui->label_22->hide(); ui->pushButton_14->hide();}
 }

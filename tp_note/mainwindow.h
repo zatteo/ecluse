@@ -89,6 +89,17 @@ private slots:
 
     void on_radioButton_12_clicked();
 
+    void enable();
+    void final_enable();
+
+    void on_pushButton_9_clicked();
+
+    void on_pushButton_11_clicked();
+
+    void on_pushButton_13_clicked();
+
+    void on_pushButton_14_clicked();
+
 private:
     Ui::MainWindow *ui;
     Ecluse e;

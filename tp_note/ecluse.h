@@ -21,7 +21,7 @@ public:
     SignalLumineux *getSignalLumineux(int);
     int sens = 0; // 1 = aval vers amont, -1 = amont vers aval
     int niveauEcluse = 0;
-    int niveauEau = 1;
+    int niveauEau = 2;
     bool admin;
 
     Vanne * vanneAmont; // vanne 0
