@@ -55,6 +55,8 @@ private slots:
 
     void feu_aval();
     void feu_amont();
+    void feu_aval_admin();
+    void feu_amont_admin();
 
     void baisseporte1();
     void baisseporte2();

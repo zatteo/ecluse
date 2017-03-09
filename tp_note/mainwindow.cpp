@@ -179,6 +179,25 @@ void MainWindow::feu_aval()
         }
     }
 }
+
+void MainWindow::feu_aval_admin()
+{
+    if(e.signalAval->etat == 0)
+    {
+        qDebug() << "rouige";
+        ui->feux2_3->setStyleSheet("background-color:rgb(239, 41, 41)");
+        ui->feux2->setStyleSheet("background-color:rgb(239, 41, 41)");
+        ui->feux4->setStyleSheet("background-color:rgb(239, 41, 41)");
+    }
+    else
+    {
+        qDebug() << "vert";
+        ui->feux2_3->setStyleSheet("background-color: rgb(78, 154, 6);");
+        ui->feux2->setStyleSheet("background-color: rgb(78, 154, 6);");
+        ui->feux4->setStyleSheet("background-color: rgb(78, 154, 6);");
+    }
+}
+
 void MainWindow::feu_amont()
 {
     qDebug() << "feu amont";
@@ -198,6 +217,24 @@ void MainWindow::feu_amont()
             ui->feux1->setStyleSheet("background-color: rgb(78, 154, 6);");
             ui->feux3->setStyleSheet("background-color: rgb(78, 154, 6);");
         }
+    }
+}
+
+void MainWindow::feu_amont_admin()
+{
+    if(e.signalAmont->etat == 0)
+    {
+        qDebug() << "rouige";
+        ui->feux2_2->setStyleSheet("background-color:rgb(239, 41, 41)");
+        ui->feux1->setStyleSheet("background-color:rgb(239, 41, 41)");
+        ui->feux3->setStyleSheet("background-color:rgb(239, 41, 41)");
+    }
+    else
+    {
+        qDebug() << "vert";
+        ui->feux2_2->setStyleSheet("background-color: rgb(78, 154, 6);");
+        ui->feux1->setStyleSheet("background-color: rgb(78, 154, 6);");
+        ui->feux3->setStyleSheet("background-color: rgb(78, 154, 6);");
     }
 }
 
@@ -487,28 +524,28 @@ void MainWindow::on_Button_quit_clicked()
 void MainWindow::on_radioButton_7_clicked()
 {
     e.signalAmont->rouge();
-    feu_amont();
+    feu_amont_admin();
 }
 
 //changement feu amont
 void MainWindow::on_radioButton_8_clicked()
 {
     e.signalAmont->vert();
-    feu_amont();
+    feu_amont_admin();
 }
 
 //changement feu aval
 void MainWindow::on_radioButton_13_clicked()
 {
     e.signalAval->rouge();
-    feu_aval();
+    feu_aval_admin();
 }
 
 //changement feu aval
 void MainWindow::on_radioButton_14_clicked()
 {
     e.signalAval->vert();
-    feu_aval();
+    feu_aval_admin();
 }
 
 //aligne le niveau de l'eau en fonctione des vannes
