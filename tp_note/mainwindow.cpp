@@ -44,21 +44,26 @@ void MainWindow::rendu_ouvre_vanne1()
 {
     ui->vanne1->setStyleSheet("background-color:rgb(114, 159, 207);");
     ui->vanne3->setStyleSheet("background-color:rgb(114, 159, 207);");
+    e.vanneAmont->etat = 1;
+
 }
 void MainWindow::rendu_ferme_vanne1()
 {
     ui->vanne1->setStyleSheet("background-color:rgb(85, 87, 83);");
     ui->vanne3->setStyleSheet("background-color:rgb(85, 87, 83);");
+    e.vanneAmont->etat = 0;
 }
 void MainWindow::rendu_ouvre_vanne2()
 {
     ui->vanne4->setStyleSheet("background-color:rgb(114, 159, 207);");
     ui->vanne2->setStyleSheet("background-color:rgb(114, 159, 207);");
+    e.vanneAval->etat = 1;
 }
 void MainWindow::rendu_ferme_vanne2()
 {
     ui->vanne2->setStyleSheet("background-color:rgb(85, 87, 83);");
     ui->vanne4->setStyleSheet("background-color:rgb(85, 87, 83);");
+    e.vanneAval->etat = 0;
 }
 
 void MainWindow::baisse_eau()

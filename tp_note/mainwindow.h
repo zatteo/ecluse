@@ -17,6 +17,8 @@ public:
     ~MainWindow();
     void authentification();
 
+signals:
+
 private slots:
     void on_Button_Amont_Aval_3_clicked();
     void on_Button_Aval_Amont_3_clicked();
@@ -40,10 +42,6 @@ private slots:
     void baisseporte2();
     void monteporte1();
     void monteporte2();
-
-
-
-
 
 private:
     Ui::MainWindow *ui;

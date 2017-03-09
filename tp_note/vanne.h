@@ -4,12 +4,16 @@
 #include <QThread>
 #include <QDebug>
 
+#define AMONT 0
+#define AVAL 1
+
 class Vanne : public QThread
 {
     Q_OBJECT
 
 public:
     explicit Vanne(int, QObject *parent = 0);
+    int etat; // 1 = ouvert, 0 = fermé
 
 protected:
     void run();
@@ -32,7 +36,6 @@ public slots:
     int getID();
 
 private:
-    int etat; // 1 = ouvert, 0 = fermé
     bool panne; // 1 = en panne, 0 = en marche
     bool alarme; // 1 = alarme, 0 = pas d'alarme
 

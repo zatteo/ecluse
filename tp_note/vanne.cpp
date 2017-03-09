@@ -14,7 +14,6 @@ void Vanne::ouverture()
         return;
     }
 
-    etat = 1;
     emit vanneOuverte();
 }
 

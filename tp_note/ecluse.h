@@ -58,6 +58,8 @@ public slots:
     void amontVersAval3();
     void amontVersAval3bis();
 
+    void fin();
+
 private:
 
     bool alarme;
