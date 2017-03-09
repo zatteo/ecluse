@@ -567,3 +567,31 @@ void MainWindow::on_radioButton_12_clicked()
     ui->radioButton_9->setEnabled(true);
     ui->radioButton_10->setEnabled(true);
 }
+
+void MainWindow::on_pushButton_9_clicked()
+{
+    e.vanneAmont->enleverAlarme();
+    if(e.vanneAmont->alarme) {ui->label_12->show(); ui->pushButton_9->show();}
+    else {ui->label_12->hide(); ui->pushButton_9->hide();}
+}
+
+void MainWindow::on_pushButton_11_clicked()
+{
+    e.porteAmont->enleverAlarme();
+    if(e.porteAmont->alarme) {ui->label_16->show(); ui->pushButton_11->show();}
+    else {ui->label_16->hide(); ui->pushButton_11->hide();}
+}
+
+void MainWindow::on_pushButton_13_clicked()
+{
+    e.vanneAval->enleverAlarme();
+    if(e.vanneAval->alarme) {ui->label_20->show(); ui->pushButton_13->show();}
+    else {ui->label_20->hide(); ui->pushButton_13->hide();}
+}
+
+void MainWindow::on_pushButton_14_clicked()
+{
+    e.porteAval->enleverAlarme();
+    if(e.porteAval->alarme) {ui->label_22->show(); ui->pushButton_14->show();}
+    else {ui->label_22->hide(); ui->pushButton_14->hide();}
+}
