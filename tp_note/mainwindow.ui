@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="page_1">
      <property name="enabled">
@@ -1596,7 +1596,7 @@ font: 14pt &quot;Ubuntu&quot;;</string>
             <x>0</x>
             <y>260</y>
             <width>401</width>
-            <height>51</height>
+            <height>61</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -1638,13 +1638,13 @@ font: 14pt &quot;Ubuntu&quot;;</string>
            <string/>
           </property>
          </widget>
-         <widget class="QLabel" name="label_75">
+         <widget class="QLabel" name="eau3">
           <property name="geometry">
            <rect>
             <x>140</x>
-            <y>140</y>
+            <y>160</y>
             <width>121</width>
-            <height>121</height>
+            <height>131</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -1770,7 +1770,7 @@ font: 14pt &quot;Ubuntu&quot;;</string>
          </widget>
          <zorder>label_73</zorder>
          <zorder>label_74</zorder>
-         <zorder>label_75</zorder>
+         <zorder>eau3</zorder>
          <zorder>label_76</zorder>
          <zorder>porte1_2</zorder>
          <zorder>porte1_3</zorder>
@@ -1792,7 +1792,7 @@ font: 14pt &quot;Ubuntu&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>1227</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
