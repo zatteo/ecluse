@@ -16,7 +16,7 @@ void Vanne::ouverture()
     emit signalVanneOuverte();
 
     connect(&timer, SIGNAL(timeout()), this, SLOT(vannePlusUn())); // ouverture de la vanne
-    timer.start(1000);
+    timer.start(500);
 }
 
 void Vanne::fermeture()
