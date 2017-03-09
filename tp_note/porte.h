@@ -12,8 +12,8 @@ class Porte : public QThread
 
 public:
     explicit Porte(int, QObject *parent = 0);
-    int etat= 2; // 4 = ouvert, 3 = en ouverture, 2 = fermé, 1 = en fermeture, 0 = arrêtée
-    bool alarme= 0; // 1 = alarme, 0 = pas d'alarme
+    int etat = 2; // 4 = ouvert, 3 = en ouverture, 2 = fermé, 1 = en fermeture, 0 = arrêtée
+    bool alarme = 0; // 1 = alarme, 0 = pas d'alarme
 
 protected:
     void run();
@@ -21,8 +21,7 @@ protected:
 signals:
     int porteOuverte();
     int porteFermee();
-    int positionPorte(int);
-    void alarmePorte(int);
+    void alarmePorte();
     void signalPorteMoinsUn();
     void signalPortePlusUn();
 
@@ -34,7 +33,7 @@ public slots:
     void urgence();
     void portePlusUn();
     void porteMoinsUn();
-    void mettreAlarme(int); // 1 = panne, 0 = urgence
+    void mettreAlarme();
     void enleverAlarme();
     bool estAlarme();
     int getID();

@@ -24,7 +24,7 @@ protected:
 signals:
     void vanneOuverte();
     void vanneFermee();
-    void alarmeVanne(int);
+    void alarmeVanne();
     void signalVannePlusUn();
     void signalVanneOuverte();
     void signalVanneFermee();
@@ -33,7 +33,7 @@ public slots:
     void ouverture();
     void fermeture();
     void urgence();
-    void mettreAlarme(int); // 1 = panne, 0 = urgence
+    void mettreAlarme();
     void enleverAlarme();
     bool estAlarme();
     int getID();

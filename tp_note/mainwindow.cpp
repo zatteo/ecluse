@@ -87,7 +87,6 @@ void MainWindow::rendu_ferme_vanne2()
 
 void MainWindow::feu_aval()
 {
-    qDebug() << " dans feu aval";
     if(e.signalAval->etat == 0)
     {
         ui->feux2_3->setStyleSheet("background-color:rgb(239, 41, 41)");
@@ -103,7 +102,6 @@ void MainWindow::feu_aval()
 }
 void MainWindow::feu_amont()
 {
-    qDebug() << " dans feu amont";
     if(e.signalAmont->etat == 0)
     {
         ui->feux2_2->setStyleSheet("background-color:rgb(239, 41, 41)");
@@ -236,6 +234,7 @@ void MainWindow::on_Button_Amont_Aval_4_clicked()
 
 void MainWindow::on_urgence()
 {
+    e.urgence();
     ui->stackedWidget->setCurrentIndex(3);
 }
 

@@ -64,15 +64,15 @@ void Vanne::urgence()
         return;
 
     fermeture();
-    mettreAlarme(0);
+    mettreAlarme();
 }
 
-void Vanne::mettreAlarme(int i)
+void Vanne::mettreAlarme()
 {
     qDebug() << "Alarme ON sur la vanne" << getID();
 
     alarme = true;
-    emit alarmeVanne(i);
+    emit alarmeVanne();
 }
 
 void Vanne::enleverAlarme()

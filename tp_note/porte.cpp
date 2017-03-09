@@ -55,7 +55,7 @@ void Porte::urgence()
         return;
 
     arret();
-    mettreAlarme(0);
+    mettreAlarme();
 }
 
 void Porte::portePlusUn()
@@ -100,12 +100,12 @@ void Porte::porteMoinsUn()
     }
 }
 
-void Porte::mettreAlarme(int i)
+void Porte::mettreAlarme()
 {
     qDebug() << "Alarme ON sur la porte" << getID();
 
     alarme = true;
-    emit mettreAlarme(i);
+    emit alarmePorte();
 }
 
 void Porte::enleverAlarme()
