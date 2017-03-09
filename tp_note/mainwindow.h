@@ -46,6 +46,8 @@ private slots:
     void monteporte1();
     void monteporte2();
 
+    void aligne_eau();
+
     void on_radioButton_7_clicked();
 
     void on_radioButton_8_clicked();
