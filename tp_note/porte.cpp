@@ -86,7 +86,7 @@ void Porte::porteMoinsUn()
 
     qDebug() << "position--";
 
-    if(position == 0) // la porte est ouverte et l'objectif était de l'ouvrir
+    if(position == 0) // la porte est fermée et l'objectif était de la fermer
     {
         etat = 2;
         timer.stop();
