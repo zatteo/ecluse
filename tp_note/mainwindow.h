@@ -3,6 +3,11 @@
 
 #include <QMainWindow>
 #include <ecluse.h>
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <unistd.h>
+#include <QGroupBox>
+#include <QCheckBox>
 
 namespace Ui {
 class MainWindow;
@@ -16,6 +21,14 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void authentification();
+    QWidget failgen;
+    QGroupBox *groupbox = new QGroupBox("F41LG3N 1.0", &failgen);
+    QCheckBox *vanneAmontCK = new QCheckBox("Vanne Amont");
+    QCheckBox *vanneAvalCK = new QCheckBox("Vanne Aval");
+    QCheckBox *porteAmontCK = new QCheckBox("Porte Amont");
+    QCheckBox *porteAvalCK = new QCheckBox("Porte Aval");
+    QPushButton *boutonCK = new QPushButton("GO !");
+    QVBoxLayout *vbox = new QVBoxLayout;
 
 signals:
 
@@ -23,6 +36,8 @@ private slots:
     void on_Button_Amont_Aval_3_clicked();
     void on_Button_Aval_Amont_3_clicked();
     void on_Button_Amont_Aval_4_clicked();
+
+    void random();
 
     void on_urgence();
     void mdp();

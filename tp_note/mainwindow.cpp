@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <unistd.h>
+#include <QGroupBox>
+#include <QCheckBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -60,11 +62,45 @@ MainWindow::MainWindow(QWidget *parent) :
 
     feu_amont();
     feu_aval();
+
+    failgen.resize(150, 200);
+
+    vbox->addWidget(vanneAmontCK);
+    vbox->addWidget(vanneAvalCK);
+    vbox->addWidget(porteAmontCK);
+    vbox->addWidget(porteAvalCK);
+    vbox->addWidget(boutonCK);
+    groupbox->setLayout(vbox);
+    groupbox->move(5, 5);
+
+    connect(boutonCK, SIGNAL(clicked(bool)), this, SLOT(random()));
+
+    failgen.show();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::random()
+{
+    if(vanneAmontCK->isChecked())
+    {
+        qDebug() << "A";
+    }
+    if(vanneAvalCK->isChecked())
+    {
+        qDebug() << "B";
+    }
+    if(porteAmontCK->isChecked())
+    {
+        qDebug() << "B";
+    }
+    if(porteAvalCK->isChecked())
+    {
+        qDebug() << "B";
+    }
 }
 
 void MainWindow::rendu_ouvre_vanne1()
