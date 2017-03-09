@@ -10,6 +10,7 @@ class SignalLumineux : public QThread
 
 public:
     SignalLumineux(int, QObject *parent = 0);
+    int etat= 0; // 1 = vert, 0 = rouge
 
 protected:
     void run();
@@ -22,7 +23,6 @@ public slots:
 
 
 private:
-    int etat; // 1 = vert, 0 = rouge
     int id;
 };
 

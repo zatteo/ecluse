@@ -57,26 +57,6 @@ void Vanne::enleverAlarme()
     alarme = false;
 }
 
-void Vanne::mettrePanne()
-{
-    qDebug() << "Panne ON sur la vanne" << getID();
-
-    panne = true;
-    mettreAlarme(1);
-}
-
-void Vanne::enleverPanne()
-{
-    qDebug() << "Panne OFF sur la vanne" << getID();
-
-    panne = false;
-}
-
-bool Vanne::estPanne()
-{
-    return panne;
-}
-
 bool Vanne::estAlarme()
 {
     return alarme;
